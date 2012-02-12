@@ -4,7 +4,7 @@
   <title><![CDATA[高晓晨的技术博客]]></title>
   <link href="http://gxcsoccer.github.com/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2012-02-13T02:29:01+08:00</updated>
+  <updated>2012-02-13T03:02:41+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -18,7 +18,8 @@
     <link href="http://gxcsoccer.github.com/blog/2012/02/13/my-first-blog/"/>
     <updated>2012-02-13T00:55:00+08:00</updated>
     <id>http://gxcsoccer.github.com/blog/2012/02/13/my-first-blog</id>
-    <content type="html"><![CDATA[<p>This is my first blog with octopress, cool!!!</p>
+    <content type="html"><![CDATA[<p>This is my first blog with octopress, cool!!!
+中文测试</p>
 ]]></content>
   </entry>
   
