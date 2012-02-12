@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://yoursite.com/blog/2012/02/13/my-first-blog/</loc>
-        <lastmod>2012-02-13T00:55:46+08:00</lastmod>
+        <loc>http://gxcsoccer.github.com/blog/2012/02/13/my-first-blog/</loc>
+        <lastmod>2012-02-13T01:53:35+08:00</lastmod>
     </url>
     <url>
-        <loc>http://yoursite.com/blog/archives/</loc>
-        <lastmod>2012-02-13T00:55:46+08:00</lastmod>
+        <loc>http://gxcsoccer.github.com/blog/archives/</loc>
+        <lastmod>2012-02-13T01:53:35+08:00</lastmod>
     </url>
     <url>
-        <loc>http://yoursite.com/</loc>
-        <lastmod>2012-02-13T00:55:46+08:00</lastmod>
+        <loc>http://gxcsoccer.github.com/</loc>
+        <lastmod>2012-02-13T01:53:35+08:00</lastmod>
     </url>
     <url>
-        <loc>http://yoursite.com/test/page.html</loc>
+        <loc>http://gxcsoccer.github.com/test/page.html</loc>
         <lastmod>2012-02-13T01:07:46+08:00</lastmod>
     </url>
 </urlset>
