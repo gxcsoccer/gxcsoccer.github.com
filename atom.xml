@@ -4,7 +4,7 @@
   <title><![CDATA[高晓晨的技术博客]]></title>
   <link href="http://gxcsoccer.github.com/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2012-02-15T02:06:36+08:00</updated>
+  <updated>2012-02-15T02:12:49+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[Peter Gao]]></name>
@@ -20,6 +20,8 @@
     <id>http://gxcsoccer.github.com/blog/2012/02/13/my-first-blog</id>
     <content type="html"><![CDATA[<p>This is my first blog with octopress, cool!!!<br/>
 中文测试</p>
+
+<h2>一段JS代码</h2>
 
 <figure class='code'><figcaption><span> (test.js)</span> <a href='http://gxcsoccer.github.com/downloads/code/test.js'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -129,6 +131,12 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h2>解决rake generate失败的方法</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export LC_CTYPE=en_US.UTF-8
+</span><span class='line'>export LANG=en_US.UTF-8</span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
   </entry>
