@@ -4,11 +4,11 @@
   <title><![CDATA[高晓晨的技术博客]]></title>
   <link href="http://gxcsoccer.github.com/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2012-02-13T03:02:41+08:00</updated>
+  <updated>2012-02-15T01:59:30+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
-    
+    <name><![CDATA[Peter Gao]]></name>
+    <email><![CDATA[gxcsoccer@126.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -18,8 +18,118 @@
     <link href="http://gxcsoccer.github.com/blog/2012/02/13/my-first-blog/"/>
     <updated>2012-02-13T00:55:00+08:00</updated>
     <id>http://gxcsoccer.github.com/blog/2012/02/13/my-first-blog</id>
-    <content type="html"><![CDATA[<p>This is my first blog with octopress, cool!!!
+    <content type="html"><![CDATA[<p>This is my first blog with octopress, cool!!!<br/>
 中文测试</p>
+
+<figure class='code'><figcaption><span> (test.js)</span> <a href='http://gxcsoccer.github.com/downloads/code/test.js'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// A simple utility function to generate output in a visible way</span>
+</span><span class='line'><span class="kd">function</span> <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">msg</span> <span class="o">=</span> <span class="nx">msg</span> <span class="o">||</span> <span class="s1">&#39;Value received:&#39;</span>
+</span><span class='line'>    <span class="nx">dojo</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">innerHTML</span><span class="o">:</span> <span class="nx">msg</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">val</span>
+</span><span class='line'>    <span class="p">},</span> <span class="s1">&#39;output&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="c1">// addOutput</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">dojo</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// Post to the JSON echoing service.</span>
+</span><span class='line'>    <span class="c1">// Note that I&#39;m explicitly *not* handling the response as JSON,</span>
+</span><span class='line'>    <span class="c1">// so that I simply get my string back.</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">def</span> <span class="o">=</span> <span class="nx">dojo</span><span class="p">.</span><span class="nx">xhrPost</span><span class="p">({</span>
+</span><span class='line'>        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/echo/json/&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">content</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">json</span><span class="o">:</span> <span class="s1">&#39;[1,2,&quot;three&quot;]&#39;</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="nx">load</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="s1">&#39;Starting point:&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// From here out, the code is identical for jQuery and Dojo.</span>
+</span><span class='line'>    <span class="c1">// Kind of neat, that. :)</span>
+</span><span class='line'>    <span class="nx">def</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// Should output the array</span>
+</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// Should output a true</span>
+</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// Should output a 3</span>
+</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+</span><span class='line'>        <span class="c1">// No return</span>
+</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// Given that there was no return,</span>
+</span><span class='line'>        <span class="c1">// the received value is undefined,</span>
+</span><span class='line'>        <span class="c1">// as then returns a promise for the return value</span>
+</span><span class='line'>        <span class="c1">// of the callback, so should output &#39;undefined</span>
+</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// Should output null</span>
+</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">return</span> <span class="mi">4</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// Should output 4</span>
+</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
 ]]></content>
   </entry>
   
