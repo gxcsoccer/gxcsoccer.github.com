@@ -4,7 +4,7 @@
   <title><![CDATA[高晓晨的技术博客]]></title>
   <link href="http://gxcsoccer.github.com/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2012-02-16T00:58:30+08:00</updated>
+  <updated>2012-02-16T01:05:09+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[Peter Gao]]></name>
@@ -60,6 +60,9 @@ $ git push origin master
 </code></pre>
 
 <p>ok了，用username.github.com就可以访问上面的页面</p>
+
+<!--more-->
+
 
 <h2>安装Octopress</h2>
 

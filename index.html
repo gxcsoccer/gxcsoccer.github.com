@@ -94,44 +94,9 @@ $ git push origin master
 
 <p>ok了，用username.github.com就可以访问上面的页面</p>
 
-<h2>安装Octopress</h2>
-
-<p><a href="http://octopress.org/">Octopress</a>是一个基于ruby的静态博客管理工具。具体安装过程可以参考<a href="http://octopress.org/docs/setup/">官方网站</a>，这里就不赘述了</p>
-
-<p>这里只讲一些要点：</p>
-
-<ul>
-<li>需要在定制文件： <code>_config.yml</code> 中把twitter中的信息全部删掉，否则由于防火长城GFW的原因，将会造成页面load很慢。</li>
-<li>需要在定制文件/source/_includes/custom/head.html 把google的自定义字体去掉，否则方滨兴老师会让你的网站时不时卡一下。</li>
-<li>发布文章用<code>rake new_post["title"]</code></li>
-<li>文章使用markdown语言进行编写，相关的语法可以参考<a href="http://daringfireball.net/projects/markdown/syntax">这里</a></li>
-<li>文章写好以后用<code>rake generate</code>生成静态HTML页面，建议用<code>rake preview</code>在本地预览以下<a href="http://localhost:4000">http://localhost:4000</a></li>
-<li>没有问题后调用<code>rake deploy</code>部署。</li>
-</ul>
-
-
-<h2>Q&amp;A</h2>
-
-<h3>解决rake generate命令invalid byte错误的方法</h3>
-
-<p><img src="/images/post/invalid_byte.png" title="Invalid Byte" alt="Invalid Byte" /></p>
-
-<pre><code>$ export LC_CTYPE=en_US.UTF-8
-$ export LANG=en_US.UTF-8
-</code></pre>
-
-<h2>参考文档</h2>
-
-<ul>
-<li><a href="http://octopress.org/docs/">http://octopress.org/docs/</a></li>
-<li><a href="http://tangqiaoboy.blog.163.com/blog/static/1161142582011112510244675/">http://tangqiaoboy.blog.163.com/blog/static/1161142582011112510244675/</a></li>
-<li><a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a></li>
-<li><a href="http://taberh.me/2011/12/26/use-Jekyll-build-Blog-on-Github.html">http://taberh.me/2011/12/26/use-Jekyll-build-Blog-on-Github.html</a></li>
-</ul>
-
 
         
-        
+        <a href="/blog/2012/02/13/my-first-blog/" class="more-link">阅读全文</a>
     </div>
     <div class="meta">
         <div class="date">
