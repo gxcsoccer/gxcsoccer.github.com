@@ -3,33 +3,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>My first blog - 高晓晨的技术博客</title>
+    <title>开始用octopress写博客 - 高晓晨的技术博客</title>
     <meta name="author" content="Peter Gao">
 
     
-    <meta name="description" content="My First Blog This is my first blog with octopress, cool!!!
-中文测试 一段JS代码 (test.js) download 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22 &hellip;">
+    <meta name="description" content="开始用octopress写博客 注册和配置Git 开始之前，确保你已经有了Github账号一枚和Git的正确配置。没有的朋友可以先移步Github注册并安装配置Git 首先，创建你的blog仓库：“username(请确保和你的帐号相同).github.com” $ mkdir username &hellip;">
     
     <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
 
@@ -68,13 +46,20 @@
 </header>
 	
 	<div id="content" class="inner"><article class="post">
-    <h1 class="title">My First Blog</h1>
-    <div class="entry"><p>This is my first blog with octopress, cool!!!<br/>
-中文测试</p>
+    <h1 class="title">开始用octopress写博客</h1>
+    <div class="entry"><h2>注册和配置Git</h2>
 
-<h2>一段JS代码</h2>
+<p>开始之前，确保你已经有了<a href="http://github.com">Github</a>账号一枚和Git的正确配置。没有的朋友可以先移步<a href="http://github.com">Github</a>注册并<a href="http://help.github.com/win-set-up-git/">安装配置Git</a></p>
 
-<figure class='code'><figcaption><span> (test.js)</span> <a href='/downloads/code/test.js'>download</a></figcaption>
+<p>首先，创建你的blog仓库：“username(请确保和你的帐号相同).github.com”</p>
+
+<pre><code>$ mkdir username.github.com
+$ cd username.github.com
+</code></pre>
+
+<p>在仓库下新建一个HTML文件</p>
+
+<figure class='code'><figcaption><span>index.html  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -83,111 +68,58 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// A simple utility function to generate output in a visible way</span>
-</span><span class='line'><span class="kd">function</span> <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">msg</span> <span class="o">=</span> <span class="nx">msg</span> <span class="o">||</span> <span class="s1">&#39;Value received:&#39;</span>
-</span><span class='line'>    <span class="nx">dojo</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">innerHTML</span><span class="o">:</span> <span class="nx">msg</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">val</span>
-</span><span class='line'>    <span class="p">},</span> <span class="s1">&#39;output&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span> <span class="c1">// addOutput</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">dojo</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// Post to the JSON echoing service.</span>
-</span><span class='line'>    <span class="c1">// Note that I&#39;m explicitly *not* handling the response as JSON,</span>
-</span><span class='line'>    <span class="c1">// so that I simply get my string back.</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">def</span> <span class="o">=</span> <span class="nx">dojo</span><span class="p">.</span><span class="nx">xhrPost</span><span class="p">({</span>
-</span><span class='line'>        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/echo/json/&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nx">content</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nx">json</span><span class="o">:</span> <span class="s1">&#39;[1,2,&quot;three&quot;]&#39;</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="nx">load</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="s1">&#39;Starting point:&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// From here out, the code is identical for jQuery and Dojo.</span>
-</span><span class='line'>    <span class="c1">// Kind of neat, that. :)</span>
-</span><span class='line'>    <span class="nx">def</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// Should output the array</span>
-</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// Should output a true</span>
-</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// Should output a 3</span>
-</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</span><span class='line'>        <span class="c1">// No return</span>
-</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// Given that there was no return,</span>
-</span><span class='line'>        <span class="c1">// the received value is undefined,</span>
-</span><span class='line'>        <span class="c1">// as then returns a promise for the return value</span>
-</span><span class='line'>        <span class="c1">// of the callback, so should output &#39;undefined</span>
-</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// Should output null</span>
-</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">return</span> <span class="mi">4</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// Should output 4</span>
-</span><span class='line'>        <span class="nx">addOutput</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'><span class="p">});</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;title&gt;</span>Hello World<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;h1&gt;</span>Hello World!<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>解决rake generate失败的方法</h2>
+<p>初始化仓库、提交并push到Github:</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>export LC_CTYPE=en_US.UTF-8
-</span><span class='line'>export LANG=en_US.UTF-8</span></code></pre></td></tr></table></div></figure>
+<pre><code>$ git init
+$ git add .
+$ git commit -a -m 'init commit.'
+$ git remote add origin
+$ git push origin master
+</code></pre>
+
+<p>ok了，用username.github.com就可以访问上面的页面</p>
+
+<h2>安装Octopress</h2>
+
+<p><a href="http://octopress.org/">Octopress</a>是一个基于ruby的静态博客管理工具。具体安装过程可以参考<a href="http://octopress.org/docs/setup/">官方网站</a>，这里就不赘述了</p>
+
+<p>这里只讲一些要点：<br/>
+* 需要在定制文件： <code>_config.yml</code> 中把twitter中的信息全部删掉，否则由于防火长城GFW的原因，将会造成页面load很慢。
+* 需要在定制文件/source/_includes/custom/head.html 把google的自定义字体去掉，否则方滨兴老师会让你的网站时不时卡一下。
+* 发布文章用<code>rake new_post["title"]</code>
+* 文章使用markdown语言进行编写，相关的语法可以参考<a href="http://daringfireball.net/projects/markdown/syntax">这里</a><br/>
+* 文章写好以后用<code>rake generate</code>生成静态HTML页面，建议用<code>rake preview</code>在本地预览以下<a href="http://localhost:4000">http://localhost:4000</a>
+* 没有问题后调用<code>rake deploy</code>部署。</p>
+
+<h2>Q&amp;A</h2>
+
+<h3>解决rake generate命令invalid byte错误的方法</h3>
+
+<p><img src="/images/post/invalid_byte.png" title="Invalid Byte" alt="Invalid Byte" /></p>
+
+<pre><code>$ export LC_CTYPE=en_US.UTF-8
+$ export LANG=en_US.UTF-8
+</code></pre>
+
+<h2>参考文档</h2>
+
+<ul>
+<li><a href="http://octopress.org/docs/">http://octopress.org/docs/</a></li>
+<li><a href="http://tangqiaoboy.blog.163.com/blog/static/1161142582011112510244675/">http://tangqiaoboy.blog.163.com/blog/static/1161142582011112510244675/</a></li>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a></li>
+<li><a href="http://taberh.me/2011/12/26/use-Jekyll-build-Blog-on-Github.html">http://taberh.me/2011/12/26/use-Jekyll-build-Blog-on-Github.html</a></li>
+</ul>
 
 </div>
     <div class="meta">
