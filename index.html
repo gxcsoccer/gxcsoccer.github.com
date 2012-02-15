@@ -98,13 +98,17 @@ $ git push origin master
 
 <p><a href="http://octopress.org/">Octopress</a>是一个基于ruby的静态博客管理工具。具体安装过程可以参考<a href="http://octopress.org/docs/setup/">官方网站</a>，这里就不赘述了</p>
 
-<p>这里只讲一些要点：<br/>
-* 需要在定制文件： <code>_config.yml</code> 中把twitter中的信息全部删掉，否则由于防火长城GFW的原因，将会造成页面load很慢。
-* 需要在定制文件/source/_includes/custom/head.html 把google的自定义字体去掉，否则方滨兴老师会让你的网站时不时卡一下。
-* 发布文章用<code>rake new_post["title"]</code>
-* 文章使用markdown语言进行编写，相关的语法可以参考<a href="http://daringfireball.net/projects/markdown/syntax">这里</a><br/>
-* 文章写好以后用<code>rake generate</code>生成静态HTML页面，建议用<code>rake preview</code>在本地预览以下<a href="http://localhost:4000">http://localhost:4000</a>
-* 没有问题后调用<code>rake deploy</code>部署。</p>
+<p>这里只讲一些要点：</p>
+
+<ul>
+<li>需要在定制文件： <code>_config.yml</code> 中把twitter中的信息全部删掉，否则由于防火长城GFW的原因，将会造成页面load很慢。</li>
+<li>需要在定制文件/source/_includes/custom/head.html 把google的自定义字体去掉，否则方滨兴老师会让你的网站时不时卡一下。</li>
+<li>发布文章用<code>rake new_post["title"]</code></li>
+<li>文章使用markdown语言进行编写，相关的语法可以参考<a href="http://daringfireball.net/projects/markdown/syntax">这里</a></li>
+<li>文章写好以后用<code>rake generate</code>生成静态HTML页面，建议用<code>rake preview</code>在本地预览以下<a href="http://localhost:4000">http://localhost:4000</a></li>
+<li>没有问题后调用<code>rake deploy</code>部署。</li>
+</ul>
+
 
 <h2>Q&amp;A</h2>
 
