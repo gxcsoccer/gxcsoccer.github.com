@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[高晓晨的技术博客]]></title>
-  <link href="http://gxcsoccer.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: JavaScript | 高晓晨的技术博客]]></title>
+  <link href="http://gxcsoccer.github.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
   <updated>2012-05-21T04:19:55+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
@@ -20,13 +20,13 @@
     <id>http://gxcsoccer.github.com/blog/2012/05/09/javascript-tips</id>
     <content type="html"><![CDATA[<h2>把数值类型装换为字符串</h2>
 
-<h3>转型： 1 + &#8221;</h3>
+<h3>转型： 1 + ''</h3>
 
 <blockquote><p>这个比较简单，加法运算符接收两个参数中，任意一个是字符串，会将另位一个转换为字符串，然后拼接起来。</p></blockquote>
 
 <h2>把字符串转换为数值类型</h2>
 
-<h3>转型：+&#8217;1&#8217;</h3>
+<h3>转型：+'1'</h3>
 
 <blockquote><p>我们知道<code>-</code>作为减法运算符时接收两个参数，而作为求负运算符时，接收一个参数。JavaScript 支持另一个不多见的“求正”的<code>+</code>运算符。显然，<code>+</code>会尝试把任何接收到的参数转换为数值型。如此，我们就有了一个廉价转型方法，考虑一下：<code>parseInt('123')</code>vs<code>+'123'</code>.</p></blockquote>
 
@@ -40,7 +40,7 @@
 </ul>
 
 
-<h3>转型并取整：&#8217;123.4&#8217; | 0</h3>
+<h3>转型并取整：'123.4' | 0</h3>
 
 <blockquote><p>这里使用“或运算”将左边得字符串隐式转换为数值型，再与<code>0</code>或。所有位运算逗要求使用<strong>32</strong>位整数参与运算。所以这又式一个廉价得转换取整方法。考虑一下：<code>Math.floor('1234.5')</code>vs<code>'1234.5' | 0</code></p>
 
@@ -62,13 +62,11 @@
 
 <blockquote><p>arguments是一个“著名”的类数组对象。在看JQuery代码的时候发现，只要一个Object实现了splice方法和length属性，在浏览器中就会被认为是一个数组</p></blockquote>
 
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/LbyMF/embedded/js/light/"></iframe>
-
+<p><iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/LbyMF/embedded/js/light/"></iframe></p>
 
 <h3>遍历数组</h3>
 
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/tazSk/embedded/js/light/"></iframe>
-
+<p><iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/tazSk/embedded/js/light/"></iframe></p>
 
 <blockquote><p>淫巧1有一个问题：当数组元素是null，undefined，0，false等时会造成循环终止。</p>
 
@@ -78,31 +76,41 @@
 
 <p>闭包即<code>function() {}</code>代码块。通常需要控制JavaScript变量作用域时，我们把代码放在这个块中运行：</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">sth</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
-</span><span class='line'><span class="p">})();</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="nx">sth</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">})();</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h3>失败的闭包</h3>
 
 <p>上面的代码中要写两对括号，如果代码块太长的话，上下的括号不方便对照。于是，你可能会有意无意漏掉<code>function</code>周围的括号:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">sth</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
-</span><span class='line'><span class="p">}();</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="nx">sth</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}();</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>很不幸，运行这段代码会报语法错误（不同 JavaScript 执行程序抛出的异常信息可能会不一样）：</p>
 
@@ -120,16 +128,21 @@
 
 <p>这是比较常见的懒人闭包：</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">+</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">sth</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
-</span><span class='line'><span class="p">}();</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">+</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="nx">sth</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}();</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>为什么它能执行？因为它很好地“营造”了一个让JavaScript将其中的 <code>function</code>识别为表达式的环境————通过单目求正运算符，让 JavaScript知道这里的<code>function</code>不可能是语句。哪有对语句进行运算的啊。</p>
 
@@ -145,95 +158,6 @@
 <li><code>1, function() { return -1; }()</code>别把逗号不当运算符！</li>
 <li><code>~function() { return -1; }()</code>位运算符也来凑热闹了哈…</li>
 <li>还可以写很多，随便怎么玩，只要组成表达式就行，自由发挥吧…</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[开始用octopress写博客]]></title>
-    <link href="http://gxcsoccer.github.com/blog/2012/02/13/my-first-blog/"/>
-    <updated>2012-02-13T00:55:00+08:00</updated>
-    <id>http://gxcsoccer.github.com/blog/2012/02/13/my-first-blog</id>
-    <content type="html"><![CDATA[<h2>注册和配置Git</h2>
-
-<p>开始之前，确保你已经有了<a href="http://github.com">Github</a>账号一枚和Git的正确配置。没有的朋友可以先移步<a href="http://github.com">Github</a>注册并<a href="http://help.github.com/win-set-up-git/">安装配置Git</a></p>
-
-<p>首先，创建你的blog仓库：“username(请确保和你的帐号相同).github.com”</p>
-
-<pre><code>$ mkdir username.github.com
-$ cd username.github.com
-</code></pre>
-
-<p>在仓库下新建一个HTML文件</p>
-
-<figure class='code'><figcaption><span>index.html  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;title&gt;</span>Hello World<span class="nt">&lt;/title&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;h1&gt;</span>Hello World!<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
-</span><span class='line'><span class="nt">&lt;/html&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>初始化仓库、提交并push到Github:</p>
-
-<pre><code>$ git init
-$ git add .
-$ git commit -a -m 'init commit.'
-$ git remote add origin
-$ git push origin master
-</code></pre>
-
-<p>ok了，用username.github.com就可以访问上面的页面</p>
-
-<!--more-->
-
-
-<h2>安装Octopress</h2>
-
-<p><a href="http://octopress.org/">Octopress</a>是一个基于ruby的静态博客管理工具。具体安装过程可以参考<a href="http://octopress.org/docs/setup/">官方网站</a>，这里就不赘述了</p>
-
-<p>这里只讲一些要点：</p>
-
-<ul>
-<li>需要在定制文件： <code>_config.yml</code> 中把twitter中的信息全部删掉，否则由于防火长城GFW的原因，将会造成页面load很慢。</li>
-<li>需要在定制文件/source/_includes/custom/head.html 把google的自定义字体去掉，否则方滨兴老师会让你的网站时不时卡一下。</li>
-<li>发布文章用<code>rake new_post["title"]</code></li>
-<li>文章使用markdown语言进行编写，相关的语法可以参考<a href="http://daringfireball.net/projects/markdown/syntax">这里</a></li>
-<li>文章写好以后用<code>rake generate</code>生成静态HTML页面，建议用<code>rake preview</code>在本地预览以下<a href="http://localhost:4000">http://localhost:4000</a></li>
-<li>没有问题后调用<code>rake deploy</code>部署。</li>
-</ul>
-
-
-<h2>Q&amp;A</h2>
-
-<h3>解决rake generate命令invalid byte错误的方法</h3>
-
-<p><img src="http://gxcsoccer.github.com/images/post/invalid_byte.png" title="Invalid Byte" alt="Invalid Byte" /></p>
-
-<pre><code>$ export LC_CTYPE=en_US.UTF-8
-$ export LANG=en_US.UTF-8
-</code></pre>
-
-<h2>参考文档</h2>
-
-<ul>
-<li><a href="http://octopress.org/docs/">http://octopress.org/docs/</a></li>
-<li><a href="http://tangqiaoboy.blog.163.com/blog/static/1161142582011112510244675/">http://tangqiaoboy.blog.163.com/blog/static/1161142582011112510244675/</a></li>
-<li><a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a></li>
-<li><a href="http://taberh.me/2011/12/26/use-Jekyll-build-Blog-on-Github.html">http://taberh.me/2011/12/26/use-Jekyll-build-Blog-on-Github.html</a></li>
 </ul>
 
 ]]></content>
