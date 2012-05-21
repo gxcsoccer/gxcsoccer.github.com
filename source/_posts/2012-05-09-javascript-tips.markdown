@@ -5,6 +5,8 @@ date: 2012-05-09 02:21
 comments: true
 categories: JavaScript
 ---
+JavaScript是一门很“飘逸”的语言，网上很多朋友总结了其中不少奇技淫巧。其实，这些技巧并不都推荐使用，但是了解其背后的原理能帮助你更上一层楼。在此收集了其中一些附在下面：
+
 ##把数值类型装换为字符串
 ###转型： 1 + ''
 
@@ -74,7 +76,7 @@ function() {
 >背景知识：**`()`只能用来求值、定义参数列表或调用函数表达式（*expression*）**。本来，`function() {}`定义的一个函数字面量（如同数组字面量 []）表达式是可以拿来调用的，但是由于设计上的原因，`function`有两种表达形式：`function fn() {};`: 这是函数声明（*declaration*）的语句（statement）；`var foo = function() {}`: 这是函数字面量（*literal*）表达式。与上面雷同的写法`var foo = function fn() {}`也是合法的表达式，不过有一点小[区别](http://ejohn.org/apps/learn/#11)。
 
 即是说，**JavaScript 需要有足够的上下文（*context*）才能判断 function 的使用属于语句还是表达式。**
-
+S
 对于单独（在语句前后加上分号将其表达为独立语句）的`;function() {}();`来说，JavaScript无法区分其中的`function`是表达式还是语句。此时，JavaScript选择了传统的语句识别，于是它被识别为两个语句————两个有问题的语句：前者缺少函数名称声明，后者不允许使用空的`()`进行求值。
 
 于是懒人们行动了，网上流传了一些不写第一组括号也能正确运行的闭包。
@@ -104,3 +106,71 @@ function() {
 * `~function() { return -1; }()`位运算符也来凑热闹了哈…
 * 还可以写很多，随便怎么玩，只要组成表达式就行，自由发挥吧…
 
+##String.replace的妙用
+>JavaScript的`String.replace`方法应该大家都了解，可是你掌握了吗？`replace`有接受两个参数，第一个参数可以是字符串，也可以是正则表达式，第二个参数除支持字符串之外，还支持$1形式正则匹配的文本，除此之外还支持传入一个处理函数，这个函数的return值就是要替换成的内容。
+
+>了解更多javascript的String.replace用法，访问：<http://www.w3school.com.cn/js/jsref_replace.asp>
+
+在实际开发中，我们会遇到对于一些集合做重复性的操作。假如，我们要获取div1, div2, div3…的长和宽。最笨的办法就是先取div1的，再取div2的，以此类推。这样重复代码多，而且不“优雅”。当然你也可以将重复代码提取为一个函数，但是这个函数可能就这个地方用的到，没有通用性，比较浪费。
+
+那么自然大家想到了使用循环，将div1, div2, div3…放到数组里面，然后循环数组
+{% codeblock lang:javascript %}
+var arr = [];
+arr.push('div1', 'div2', 'div3');
+
+arr.forEach(function(a, i){
+	console.log(a);
+	// do something
+});
+{% endcodeblock %}
+
+当然还可以这样：
+{% codeblock lang:javascript %}
+'div1 div2 div3'.split(' ').forEach(function(a, i){
+	console.log(a);
+	// do something
+});
+{% endcodeblock %}
+
+这样对于支持forEach的高级浏览器还是可以的，否则需要扩展数组原型了，不提倡扩展原型，即使不扩展原型提供个额外的函数来操作，就又是浪费。
+
+如果使用了JQuery或者underscore，还可以用它提供的each方法：
+{% codeblock lang:javascript %}
+$.each('div1 div2 div3'.split(' '), (function(i, a){
+	console.log(a);
+	// do something
+}));
+{% endcodeblock %}
+
+但是，其实我们用replace就可以实现类似的功能：
+{% codeblock lang:javascript %}
+var wh = {};
+"div1 div2 div3".replace(/[^ ]+/g,function(a){
+	var elem = document.getElementById(a);
+        wh[a] = {};
+	'Width Height'.replace(/[^ ]+/g, function(i){
+			wh[a][i] = elem['offset' + i] || elem['client' + i];
+		});
+});
+console.log(wh);
+{% endcodeblock %}
+
+##位运算判断元算是否在集合中
+{% codeblock lang:javascript %}
+if(~'abc'.indexOf('b')) {
+	// do something
+}
+
+// 等价于
+
+if('abc'.indexOf(b) !== -1) {
+	// do something
+}
+{% endcodeblock %}
+
+>背景知识：`补码`：任何数值n的位反等于-(n + 1):
+~n === -(n + 1)。很明显，只有~-1才等于0。
+
+>String的`indexOf`方法，找到时，返回自然数；没找到，则返回-1。
+
+其实两种写法的差别不大，用位运算更简洁一些，但随之而且也可能造成代码比较晦涩
