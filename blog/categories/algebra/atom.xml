@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algebra | 高晓晨的技术博客]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/algebra/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2012-06-25T04:07:22+08:00</updated>
+  <updated>2012-06-25T04:11:37+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[Peter Gao]]></name>
@@ -136,9 +136,9 @@
 
 <p>我们用另外的思路推导一下，假设向量v的模为r，旋转前相对于x轴的角度为∂，那么旋转Ɵ度后，在y轴上的投影为r * cos(∂ + Ɵ)，在z轴上的投影为r * sin(∂ + Ɵ)，根据正弦余弦公式的推导</p>
 
-<p>r * cos(∂ + Ɵ) = r * (cos∂cosƟ - sin∂sinƟ</p>
+<p>r * cos(∂ + Ɵ) = r * (cos∂cosƟ - sin∂sinƟ)</p>
 
-<p>r * cos(∂ + Ɵ) = r * cos∂cosƟ - r * sin∂s</p>
+<p>r * cos(∂ + Ɵ) = r * cos∂cosƟ - r * sin∂sinƟ</p>
 
 <p><em>r * cos(∂ + Ɵ) = ycosƟ － zsinƟ</em></p>
 
