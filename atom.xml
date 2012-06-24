@@ -4,7 +4,7 @@
   <title><![CDATA[高晓晨的技术博客]]></title>
   <link href="http://gxcsoccer.github.com/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2012-05-22T01:33:55+08:00</updated>
+  <updated>2012-06-25T04:07:22+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[Peter Gao]]></name>
@@ -12,6 +12,146 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[前端中的数学知识]]></title>
+    <link href="http://gxcsoccer.github.com/blog/2012/06/24/mathematic-in-web/"/>
+    <updated>2012-06-24T22:48:00+08:00</updated>
+    <id>http://gxcsoccer.github.com/blog/2012/06/24/mathematic-in-web</id>
+    <content type="html"><![CDATA[<p>最近在学习webgl，看得很吃力，感叹学校里的数学知识都已经全还给老师。总结一下这几天恶补的数学知识，以免猴子搬苞谷。。。</p>
+
+<h2>矢量（vector）</h2>
+
+<p><strong>矢量</strong>亦称<strong>向量</strong>。指一个同时具有大小和方向的几何对象，数学中相对于<strong>标量</strong>（只有大小）。</p>
+
+<p>矢量有多种表示方法，比如：用起点A和终点B来表示<img src="http://gxcsoccer.github.com/images/post/vector.png" alt="" />；在三维直角坐标系Oxyz里可以用原点（0,0,0）到空间中任意一点表示一个向量。</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/3d.png" alt="" /> <img src="http://gxcsoccer.github.com/images/post/col_vector.png" alt="" /></p>
+
+<h3>单位矢量</h3>
+
+<p>矢量空间中的单位矢量就是长度为1的矢量。也就是<strong>模</strong>为1的矢量。</p>
+
+<h3>基本矢量</h3>
+
+<p>三维直角坐标系中，基本矢量就是以横轴（Ox）、竖轴（Oy） 以及纵轴（Oz） 为方向的三个单位矢量<img src="http://gxcsoccer.github.com/images/post/unit_v.png" alt="" />。这三个矢量取好以后，其它的矢量就可以通过三元数组来表示，因为它们可以表示成一定倍数的三个基本矢量的总合。比如说一个标示为(2,1,3)的矢量就是2个矢量<img src="http://gxcsoccer.github.com/images/post/i_v.png" alt="" />加上1个矢量<img src="http://gxcsoccer.github.com/images/post/j_v.png" alt="" />加上3个矢量<img src="http://gxcsoccer.github.com/images/post/k_v.png" alt="" />得到的矢量。</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/v_fn.png" alt="" /></p>
+
+<p>更多矢量相关知识参考：<a href="http://zh.wikipedia.org/wiki/%E7%9F%A2%E9%87%8F">http://zh.wikipedia.org/wiki/%E7%9F%A2%E9%87%8F</a>， 这里就不赘述了。</p>
+
+<h2>矩阵（Matrix）</h2>
+
+<p>数学上，一个m×n的矩阵是一个由m行n列元素排列成的矩形阵列。矩阵里的元素可以是数字、符号或数学式。以下是一个由6个数字符素构成的2行3列的矩阵：<img src="http://gxcsoccer.github.com/images/post/matrix.png" alt="" /></p>
+
+<!--more-->
+
+
+<h3>矩阵的运算</h3>
+
+<p>矩阵的运算包括加（减），数乘，转置和乘法等。</p>
+
+<blockquote><p>加法: m * n 矩阵A和B的和（差）：A±B为一个m×n矩阵，其中每个元素是A和B相应元素的和（差）</p>
+
+<p>数乘：标量c与矩阵A的数乘：cA的每个元素是A的相应元素与c的乘积</p>
+
+<p>转置：m * n 矩阵A的转置是一个n×m的矩阵，记为AT（有些书中也记为Atr 或tA、A&#8217;），其中的第i个行向量是原矩阵A的第i个列向量；或者说，转置矩阵AT第i行第j列的元素是原矩阵A第j行第i列的元素</p></blockquote>
+
+<p>下面着重讲下矩阵的乘法</p>
+
+<blockquote><p>两个矩阵的乘法仅当第一个矩阵A的列数和另一个矩阵B的行数相等时才能定义。如A是m * n矩阵和B是n * p矩阵，它们的乘积AB是一个m * p矩阵，它的一个元素</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/m_m.png" alt="" /></p>
+
+<p>其中 1 ≤ i ≤ m, 1 ≤ j ≤ p</p></blockquote>
+
+<p>矩阵的乘法满足结合律和分配律，但是不满足交换律。</p>
+
+<p>更多矩阵相关知识参考：<a href="http://zh.wikipedia.org/wiki/%E7%9F%A9%E9%98%B5">http://zh.wikipedia.org/wiki/%E7%9F%A9%E9%98%B5</a></p>
+
+<h2>线性变换</h2>
+
+<p>中学的时候，我们学习了一元线性方程<strong>f(x) = kx</strong>，如果将他放到2维的坐标系中，它就是一条过原点的直线。现在我们从2维推广到n维</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/fn_group.png" alt="" /></p>
+
+<p>好像复杂了很多，它还能称之为线性方程吗？</p>
+
+<p>现在我们就要运用上面讲到的向量和矩阵来表示n维线性方程，它的形式是<strong>b = Ax</strong>，</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/fn_group2.png" alt="" /></p>
+
+<p>A是一个m x n的矩阵，x是一个向量，你可能发现了，这和上面最简单的一元线性方程很像，这样初等线性函数和高等线性函数在形式上就统一起来了。</p>
+
+<p>从几何上解释<strong>b = Ax</strong>就是：向量x经过线性变换后变成了向量b。换句话说我们可以用矩阵来表达<strong>线性变换</strong>，矩阵A就是这个线性变换的<strong>变换矩阵</strong></p>
+
+<p>那我们常见的线性变换有：</p>
+
+<ul>
+<li>旋转</li>
+<li>缩放</li>
+<li>平移（注意：平移本来不是线性变换，但我们可以用n+1维矩阵来表示）</li>
+</ul>
+
+
+<p>我来看看在三维空间下，它们的变换矩阵分别是什么呢？</p>
+
+<h3>平移变换</h3>
+
+<p>大家下面看到的变换矩阵都是4 * 4的，主要原因是为了将平移和其他线性变换能够统一起来</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/tranlate.jpg" alt="" /></p>
+
+<h3>缩放变换</h3>
+
+<p>局部比例变换的变换矩阵如下：</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/p_scale.gif" alt="" /></p>
+
+<p>整体比例变换的变换矩阵如下：</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/w_scale.gif" alt="" /></p>
+
+<h3>旋转变换</h3>
+
+<p>三维旋转满足右手定则：大拇指指向围绕旋转的轴向，四指转的方向为正向。</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/rotate_rule.gif" alt="" /></p>
+
+<p>绕z轴旋转</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/z-rotate.jpg" alt="" /></p>
+
+<p>绕x轴旋转</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/x-rotate.jpg" alt="" /></p>
+
+<p>绕y轴旋转</p>
+
+<p><img src="http://gxcsoccer.github.com/images/post/y-rotate.jpg" alt="" /></p>
+
+<p>我们可以试着证明一下绕x轴的旋转变换矩阵:</p>
+
+<blockquote><p>例如：有一个向量v = (x, y, z), 现在我想让它绕x轴旋转Ɵ度，得到一个新得向量w。根据上面内容，我们应该用(x, y, z, 1)乘以Trx，根据矩阵乘法法则，得到的新向量w = (x, ycosƟ － zsinƟ, zcosƟ ＋ ysinƟ)</p>
+
+<p>我们用另外的思路推导一下，假设向量v的模为r，旋转前相对于x轴的角度为∂，那么旋转Ɵ度后，在y轴上的投影为r * cos(∂ + Ɵ)，在z轴上的投影为r * sin(∂ + Ɵ)，根据正弦余弦公式的推导</p>
+
+<p>r * cos(∂ + Ɵ) = r * (cos∂cosƟ - sin∂sinƟ</p>
+
+<p>r * cos(∂ + Ɵ) = r * cos∂cosƟ - r * sin∂s</p>
+
+<p><em>r * cos(∂ + Ɵ) = ycosƟ － zsinƟ</em></p>
+
+<p>同理：</p>
+
+<p>r * sin(∂ + Ɵ) = r * (sin∂cosƟ + cos∂sinƟ)</p>
+
+<p>r * sin(∂ + Ɵ) = r * sin∂cosƟ + r * cos∂sinƟ   <br/>
+<em>r * sin(∂ + Ɵ) = zcosƟ ＋ ysinƟ</em></p></blockquote>
+
+<p>先写到。。。睡觉了</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JavaScript奇技淫巧（持续更新）]]></title>
