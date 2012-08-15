@@ -2,17 +2,20 @@
 layout: default
 ---
 
-{% assign index = true %}
-{% for post in paginator.posts %}
-{% assign content = post.content %}
-    <article class="post">{% include article.html %}</article>
-{% endfor %}
-<nav id="pagenavi">
-    {% if paginator.previous_page %}
-        <a href="{{paginator.previous_page}}" class="prev">Prev</a>
-    {% endif %}
-    {% if paginator.next_page %}
-        <a href="{{paginator.next_page}}" class="next">Next</a>
-    {% endif %}
-    <a href="{{ root_url }}/blog/archives" class="center">Blog Archives</a>
-</nav>
+<section class="main-wrap clearfix">
+  {% assign index = true %}
+  {% for post in paginator.posts %}
+  {% assign content = post.content %}
+    <article>
+      {% include article.html %}
+    </article>
+  {% endfor %}
+
+  {% if paginator.next_page or paginator.previous_page %}
+  <!-- Pagination -->
+  <section class="pagination clearfix">
+    {% if paginator.next_page %}<a class="prev float-l" href="{{paginator.next_page}}">&larr; Older</a>{% endif %}
+    {% if paginator.previous_page %}<a class="next float-r" href="{{paginator.previous_page}}">Newer &rarr;</a>{% endif %}
+  </section>
+  {% endif %}
+</section>
