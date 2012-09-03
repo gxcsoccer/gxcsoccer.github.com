@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <title>彼得_$</title>
   
-  <meta name="description" content="前端中的数学知识 2012-06-24 Sun 最近在学习webgl，看得很吃力，感叹学校里的数学知识都已经全还给老师。总结一下这几天恶补的数学知识，以免猴子搬苞谷。。。 矢量（vector） 矢量亦称向量。指一个同时具有大小和方向的几何对象，数学中相对于标量（只有大小）。 矢量有多种表示方法， &hellip;" />
+  <meta name="description" content="如何停掉CSS3动画？ 2012-09-04 Tue CSS3里面提供原生的动画（Animation）和过渡（Transition）支持，使用起来非常简单方便，但是一直有一个问题困扰着我：如何实现像JQuery动画提供stop方法一样的功能？ &hellip;" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/stylesheets/screen.css" />
   
@@ -40,6 +40,74 @@ html,body{height:100%;overflow:hidden}
 
 <section class="main-wrap clearfix">
   
+  
+  
+    <article>
+      
+
+<header>
+  
+    <h1 class="entry-title"><a href="/blog/2012/09/04/how-to-stop-css3-transition/">如何停掉CSS3动画？</a></h1>
+  
+  
+    <p class="meta">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-04T00:07:00+08:00" pubdate="pubdate" data-updated="true">2012-09-04 Tue</time>
+      
+
+      <span class="share-to-weibo">
+        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=如何停掉CSS3动画？ - &amp;url=http://gxcsoccer.github.com/blog/2012/09/04/how-to-stop-css3-transition/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=如何停掉CSS3动画？ - &amp;url=http://gxcsoccer.github.com/blog/2012/09/04/how-to-stop-css3-transition/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=如何停掉CSS3动画？ - http://gxcsoccer.github.com/blog/2012/09/04/how-to-stop-css3-transition/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
+      </span>
+    </p>
+  
+</header>
+
+
+  <div class="entry-content typo"><p>CSS3里面提供原生的动画（Animation）和过渡（Transition）支持，使用起来非常简单方便，但是一直有一个问题困扰着我：如何实现像JQuery动画提供stop方法一样的功能？</p>
+
+<p>今天在学习bootstrap代码的时候发现一段有意思的代码。这段代码意图非常简单，就是要显示$element元素，并且给它加上&#8221;in&#8221;类，使其产生slide in的效果。但让我看不懂的是：<code>that.$element[0].offsetWidth</code>这句代码，好像没有做什么实质性的事情，后面的注释写的是force reflow（强制重绘）。</p>
+
+<div><script src='https://gist.github.com/3611790.js?file='></script>
+<noscript><pre><code>that.$element.show();
+
+if (transition) {
+that.$element[0].offsetWidth // force reflow
+}
+
+that.$element.addClass('in');</code></pre></noscript></div>
+
+
+<p>在网上查找了相关的资料，看到<a href="http://stackoverflow.com/questions/9016307/force-reflow-in-css-transitions-in-bootstrap">Stackoverflow</a>上有人做了解答：</p>
+
+<blockquote><p>That&#8217;s where the call to the left offset comes in. This is one of the properties that are said to cause a re-flow in the page. This is obviously usually a bad thing performance wise, but it seems necessary to prevent the css transitions picking up the wrong values.</p></blockquote>
+
+<p>大概的意思是：读取offsetWidth(或者left offset)导致了浏览器的<code>re-flow</code>操作，这样做的目的有点类似我们在使用buffer时候的flush操作，虽然会带来性能问题，但是在特定场景下可以防止css3 tranisition取到错误的值。</p>
+
+</div>
+  
+  
+    <footer class="align-r">
+      <a href="/blog/2012/09/04/how-to-stop-css3-transition/#ContinueReading">阅读全文</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
