@@ -18,6 +18,7 @@ categories: resume
 
 **目前城市：**南京
 
+<!--more-->
 
 ##工作经历：
 
