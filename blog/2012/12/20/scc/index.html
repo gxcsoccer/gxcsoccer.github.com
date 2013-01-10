@@ -3,9 +3,9 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Blog Archives - 彼得_$</title>
+  <title>自己写一个seajs的打包工具 - 彼得_$</title>
   
-  <meta name="description" content="Blog Archives 2013 简历 2013-01-10 Thu 2012 自己写一个seajs的打包工具 2012-12-20 Thu 如何停掉CSS3动画？ 2012-09-04 Tue 前端中的数学知识 2012-06-24 Sun JavaScript奇技淫巧（持续更新） &hellip;" />
+  <meta name="description" content="自己写一个seajs的打包工具 2012-12-20 Thu 最近的项目中使用了玉伯的seajs。在项目归档的时候需要把上百个文件combine到一起，本来想用seajs配套的spm来做，但是看了看似乎有点复杂，索性自己写了一个小工具。 其实我们的需求比较简单： &hellip;" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/stylesheets/screen.css" />
   
@@ -39,49 +39,16 @@ html,body{height:100%;overflow:hidden}
 <header class="my-nickname"><em title="">彼得_$</em></header>
 
 <section class="main-wrap clearfix">
-
-
-  
-  <header>
-    <h1 class="page-title">Blog Archives</h1>
+  <article role="article">
     
-  </header>
-  
-  <dl class="archives">
-  
-  
-  
-    
-    <dt>2013</dt>
-  
-  <dd><h1 class="entry-title"><a href="/blog/2013/01/10/resume/">简历</a></h1>
-<p class="meta">
-  
 
-
-
-
-
-
-
-
+<header>
   
-
-
-<time datetime="2013-01-10T22:10:00+08:00" pubdate="pubdate" data-updated="true">2013-01-10 Thu</time>
-  
-
-</p>
-</dd>
+    <h1 class="entry-title">自己写一个seajs的打包工具</h1>
   
   
-  
-    
-    <dt>2012</dt>
-  
-  <dd><h1 class="entry-title"><a href="/blog/2012/12/20/scc/">自己写一个seajs的打包工具</a></h1>
-<p class="meta">
-  
+    <p class="meta">
+      
 
 
 
@@ -94,103 +61,80 @@ html,body{height:100%;overflow:hidden}
 
 
 <time datetime="2012-12-20T01:24:00+08:00" pubdate="pubdate" data-updated="true">2012-12-20 Thu</time>
+      
+
+      <span class="share-to-weibo">
+        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=自己写一个seajs的打包工具 - &amp;url=http://gxcsoccer.github.com/blog/2012/12/20/scc/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=自己写一个seajs的打包工具 - &amp;url=http://gxcsoccer.github.com/blog/2012/12/20/scc/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=自己写一个seajs的打包工具 - http://gxcsoccer.github.com/blog/2012/12/20/scc/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
+      </span>
+    </p>
   
-
-</p>
-</dd>
-  
-  
-  
-  <dd><h1 class="entry-title"><a href="/blog/2012/09/04/how-to-stop-css3-transition/">如何停掉CSS3动画？</a></h1>
-<p class="meta">
-  
+</header>
 
 
+  <div class="entry-content typo"><p>最近的项目中使用了玉伯的<a href="http://seajs.org">seajs</a>。在项目归档的时候需要把上百个文件combine到一起，本来想用seajs配套的<a href="https://github.com/spmjs/spm">spm</a>来做，但是看了看似乎有点复杂，索性自己写了一个小工具。</p>
+
+<p>其实我们的需求比较简单：把通过require加载的js文件都打到一个文件里，而通过use加载的就不用了。</p>
+
+<p>combine一般的js文件非常容易，只需要按照依赖顺序做文件的合并即可。但是对于型如：<code>define(function(){ … })</code>这样seajs风格文件这样显然是不行，浏览器会狂报404。那么应该如何做呢？</p>
+
+<p>我们在使用define函数去定义一个模块时一般都只会传一个函数作为参数，实际上define函数有三个参数</p>
+
+<ul>
+<li>id: 模块的标识，如果这个参数不传，会使用文件的url作为文件标识</li>
+<li>deps: 依赖列表，如果这个参数不传，seajs会分析函数body找出依赖列表</li>
+<li>body: 模块体</li>
+</ul>
 
 
-
-
-
-
-  
-
-
-<time datetime="2012-09-04T00:07:00+08:00" pubdate="pubdate" data-updated="true">2012-09-04 Tue</time>
-  
-
-</p>
-</dd>
-  
-  
-  
-  <dd><h1 class="entry-title"><a href="/blog/2012/06/24/mathematic-in-web/">前端中的数学知识</a></h1>
-<p class="meta">
-  
+<!--more-->
 
 
 
 
+<div><script src='https://gist.github.com/4504426.js?file='></script>
+<noscript><pre><code>define(function(require, exports, module) {
+
+  // The module code goes here
+
+});
+
+/**  the full version  **/
+define(id, deps, function(require, exports, module) {
+
+  // The module code goes here
+
+});</code></pre></noscript></div>
 
 
+<p>那么要合并文件，其实就是要将id和deps参数补全，我的做法是：</p>
+
+<ol>
+<li>设置一个入口文件</li>
+<li>分析文件的依赖关系</li>
+<li>使用文件名作为id，将define参数补齐</li>
+<li>递归处理文件依赖的资源，直到所有依赖文件都已经打包到一起</li>
+</ol>
 
 
-  
+<p>具体代码参考<a href="https://github.com/gxcsoccer/scc">这里</a></p>
+</div>
 
 
-<time datetime="2012-06-24T22:48:00+08:00" pubdate="pubdate" data-updated="true">2012-06-24 Sun</time>
-  
-
-</p>
-</dd>
-  
-  
-  
-  <dd><h1 class="entry-title"><a href="/blog/2012/05/09/javascript-tips/">JavaScript奇技淫巧（持续更新）</a></h1>
-<p class="meta">
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-09T02:21:00+08:00" pubdate="pubdate" data-updated="true">2012-05-09 Wed</time>
-  
-
-</p>
-</dd>
-  
-  
-  
-  <dd><h1 class="entry-title"><a href="/blog/2012/02/13/my-first-blog/">开始用octopress写博客</a></h1>
-<p class="meta">
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-13T00:55:00+08:00" pubdate="pubdate" data-updated="true">2012-02-13 Mon</time>
-  
-
-</p>
-</dd>
-  
-</dl>
-
-
-
+    <footer>
+      <p class="meta neighbor clearfix">
+        
+          <a href="/blog/2012/09/04/how-to-stop-css3-transition/" class="float-l" title="Previous Post: 如何停掉CSS3动画？">&laquo; 如何停掉CSS3动画？</a>
+        
+        
+          <a href="/blog/2013/01/10/resume/" class="float-r" title="Next Post: 简历">简历 &raquo;</a>
+        
+      </p>
+    </footer>
+  </article>
 
   <section id="disqus_thread"></section>
 </section>
@@ -255,7 +199,7 @@ html,body{height:100%;overflow:hidden}
 
 <script src="/javascripts/application.js"></script>
 
-
+<script>var disqus_shortname="gxcsoccer",disqus_identifier=disqus_url="http://gxcsoccer.github.com/blog/2012/12/20/scc/",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
 <iframe src="/offline-cache.html" style="display:none"></iframe>
 </body>
 </html>
