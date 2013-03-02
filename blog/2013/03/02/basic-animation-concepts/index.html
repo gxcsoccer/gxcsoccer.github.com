@@ -3,11 +3,11 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Category: JavaScript - 彼得_$</title>
+  <title>第一章 动画基本概念 - 彼得_$</title>
   
-  <meta name="description" content=" Category: JavaScript 2013 第一章 动画基本概念
-Mar 02 2013 posted in HTML5,, JavaScript, 翻译, 2012 JavaScript奇技淫巧（持续更新）
-May 09 2012 posted in JavaScript " />
+  <meta name="description" content="第一章 动画基本概念 2013-03-02 Sat 这一章包含那些内容呢？ 什么是动画？
+帧（Frames）和动作（motion）
+动态动画 vs 静态动画 浏览器从最开始获得互联网文本信息的工具，发展到今天已经逐渐演变成一个完全图像化，交互化的运行环境，迅速地颠覆了我们沟通和分享的方式。 &hellip;" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/stylesheets/screen.css" />
   
@@ -41,55 +41,122 @@ html,body{height:100%;overflow:hidden}
 <header class="my-nickname"><em title="">彼得_$</em></header>
 
 <section class="main-wrap clearfix">
-
-
   <article role="article">
     
-    <header>
-      <h1 class="entry-title">Category: JavaScript</h1>
+
+<header>
+  
+    <h1 class="entry-title">第一章 动画基本概念</h1>
+  
+  
+    <p class="meta">
       
-    </header>
-    
-    <div class="entry-content typo"><div id="blog-archives" class="category">
 
 
 
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/03/02/basic-animation-concepts/">第一章 动画基本概念</a></h1>
-<time datetime="2013-03-02T11:56:00+08:00" pubdate><span class='month'>Mar</span> <span class='day'>02</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/html5-/'>HTML5,</a>, <a class='category' href='/blog/categories/javascript/'>JavaScript</a>, <a class='category' href='/blog/categories/翻译-/'>翻译,</a></span>
-</footer>
 
 
-</article>
 
 
 
   
-  <h2>2012</h2>
 
-<article>
+
+<time datetime="2013-03-02T11:56:00+08:00" pubdate="pubdate" data-updated="true">2013-03-02 Sat</time>
+      
+
+      <span class="share-to-weibo">
+        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=第一章 动画基本概念 - &amp;url=http://gxcsoccer.github.com/blog/2013/03/02/basic-animation-concepts/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=第一章 动画基本概念 - &amp;url=http://gxcsoccer.github.com/blog/2013/03/02/basic-animation-concepts/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=第一章 动画基本概念 - http://gxcsoccer.github.com/blog/2013/03/02/basic-animation-concepts/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
+      </span>
+    </p>
   
-<h1><a href="/blog/2012/05/09/javascript-tips/">JavaScript奇技淫巧（持续更新）</a></h1>
-<time datetime="2012-05-09T02:21:00+08:00" pubdate><span class='month'>May</span> <span class='day'>09</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/javascript/'>JavaScript</a></span>
-</footer>
+</header>
 
 
-</article>
+  <div class="entry-content typo"><p><em>这一章包含那些内容呢？</em></p>
 
+<ul>
+<li>什么是动画？</li>
+<li>帧（Frames）和动作（motion）</li>
+<li>动态动画 vs 静态动画</li>
+</ul>
+
+
+<p>浏览器从最开始获得互联网文本信息的工具，发展到今天已经逐渐演变成一个完全图像化，交互化的运行环境，迅速地颠覆了我们沟通和分享的方式。最新的HTML5标准中，加入了以前只能在native应用可用的图像处理能力。经过一段时期的停滞以后，现在浏览器正受益于新一轮HTML5，JavaScript等技术的革新。HTML5 canvas元素使我们能够创建标准的游戏，应用和动画，并且兼容各种标准浏览器和移动设备，包括目前流行的设计和平板（iPhone, iPad和Android设备）。</p>
+
+<p>这本书囊括了使用HTML5 canvas元素和JavaScript构造动画效果的编程，数学和物理等各方面技术。你们将看到，那些绚丽的动画效果将首次在标准浏览器上得以实现。</p>
+
+<p>在我们深入具体的技术和公式前，让我们首先很快的了解到底什么是动画？介绍一些它背后基础的概念，来帮助你创建更加有趣的动画效果</p>
+
+<p>不管你是不是第一次接触或者已经有使用Adobe Flash等类似工具的经验，这本书都是你动画编程很好的指导。由于Flash向JavaScript的迁移，本书经历了多次改变，但是从另外一方面证明了底层的技术和数学概念是语言无关的。我们现在讨论的是web浏览器，但是只要适度的图像能力支持，这些公式和样例适用于各种编程环境。</p>
+
+<p>当然，如果你已经迫不及待写点代码了，你也可以跳过本章。但是还是强烈建议你读一读，至少帮助你了解动画是如何工作的。</p>
+
+<h2>什么是动画？</h2>
+
+<p>动画是动作（motion）。动作是在一段时间内物体位置的变化。这一分钟它在这儿，下一分钟它跑到那儿去了。通过用数学公式来表示物体的位置，你便能够控制它的下一个位置，影响它移动的行为－－就向赋予了它生命。</p>
+
+<p>但是动画不仅仅是移动，它改变任何可见的属性：形状，大小，方向，颜色等等。皮球被压扁，植物生长，面部扭曲－－无论什么改变。最早的一些电脑动画通过循环改变颜色来模拟运动。比如：你可以创造一个由深浅不一的蓝色像素组成的瀑布，通过以某种频率交替色调，让它看起来像是流下来的水，虽然实际上没有任何位置的变化在屏幕上。</p>
+
+<p>时间是动画基本的要素。它用于表达物体从一处到另外一处的变化过程。没有时间，就没有动作－－它仍然只是一幅图，不是动画。所以，没有动作，我们是感知不到时间的存在，即便就在当前。举个例子，一段来自监控摄像头拍摄的空旷车库视频，如果没有物体移动，你没法判断你是在看一个直播流5秒种前的一帧￼，还是一幅静止的图片。只有当一个塑料袋被吹过屏幕，这时你才能确定那是当前时间，后面可能还有变化。没有时间，那就只是张图片而已。</p>
+
+<p>这又引入另外一个话题，动画能够让我们保持兴趣。如果有东西改变了，我们的大脑会自然的好奇，那变了？为什么变了？是不是我干的？变化是否符合我预期，或者我应该调整我的预期？有节奏的媒体类型（Temporal media types）总是吸引人的，像音乐和电影，因为，就像生活一样我们永远不知道下面是什么。静态的媒体（Nontemporal media）－－图片，画，文字不会改变，我们可能会深入研究这些作品，我们的理解和解释可能随时间而改变，但是作品不会变。这就是为什么动画能够吸引人。这也可以解释为什么我们可以花好几个小时欣赏一部电影或者整天沉迷于电子游戏。</p>
+
+<h2>帧（Frames）和动作（Motion）</h2>
+
+<p>动画实际上是产生动作的幻象，几乎所有形式的投影运动媒体运用<em>帧</em>来实现动画。</p>
+
+<p>帧是一系列离散的图片以很快的速度连续交替显示，以此来模拟物体运动或者改变。帧是你在电脑，电视，电影屏幕上看到所有东西的基础。让我们回到最早时期的卡通。动画师在玻璃纸的每一格画独立的图，最早的动态图片也使用了相似的技术将许多张照片组合起来。</p>
+
+<p>概念是简单的：一张一张的显示一组有着细微差别的图片，这使它们看起来就像一张“动”的图片。但是为什么我们一直强调它使动作的幻象呢？如果你在电影里看到一个人在屋里走动，那不是动作吗？当然！它只是一张人的图片，不是一个真人，但这还不是我们不承认它是动作的主要原因。</p>
+
+<p>记住！移动的物体从一个点到另一个点，经历个其中整个空间。那才是真正的动作；物体在空间里平滑的移动，而不只是几个快照。但是以帧为基础的动作就只能做到样，它不是点到点的移动，而是先消失，然后在下一帧出现在下一个位置。移动的越快，其中跳跃的幅度越大。</p>
+
+<p>如果你看到一幅图里面一个人站在房间的左侧，过了一会儿另外一幅图同样一个人站在房间的右侧。你应该断定这是两幅图片，而不是动画。如果你看到这个人穿过房间过程中的6张图片，你仍然认为这是一系列单独的照片。但是如果这些照片以足够快的速度播放，你可能会改变你的看法，认为是一个人穿过了这间屋子。和两张图片一样，它不是真正的动作，但是到一定程度后，你已经“上当”了。</p>
+
+<p>这点在电影工业里已经被广泛的研究。研究者发现一秒种达到24帧，人们就会认为它是一张动态的图片。如果小于24帧／秒，可以感觉到画面产生烦人的跳动，闪烁，“幻象”便被揭穿了。并且似乎人类的眼睛不能分辨帧率高于24帧／秒，换句话说1秒种显示100帧并不能让你觉得动画更加真实了（虽然更高帧率在动画编程中能够创造更好的交互体验，动画看起来更平滑）。</p>
+
+<h2>把帧看做记录</h2>
+
+<p>在整个帧的概念里面，需要做到三点：存储，传输和显示。你不能存储，传输和显示一个真人，但是你可以存储许多张那个人穿过房间的图片。你也能传输和显示这些图片。因此，只要你能做到那三点，你能在任何地方任何时间显示动画。</p>
+
+<p>现在，我们需要对帧做一个更加宽泛的定义。到目前为止，我们提到的帧都是图片或者画。让我们称之为在一个系统中某个时间点的一条记录。这个系统可以是人穿过房间途中的点，记录可以是一张图片。那么，系统也可以是一组图像化的物体（virtual object），记录就是在某一时间点他们的形状，颜色和位置。因此，你的动画不在是一系列真实的图片，而是一系列图片的描述。电脑可以根据这些描述绘制一张图片，然后显示它。</p>
+
+<h2>可编程的帧</h2>
+
+<p>因为你的电脑具备计算的能力，所以你不需要一长串的帧描述。你可以将它们简化为第一帧的描述，以及创造接下来帧的一些规则。所以，用电脑不仅仅可以根据帧描述来绘制图片，现在我们可以先创建帧描述，然后绘制图片，最后显示图片。</p>
+
+<p>考虑下到用该方法可以节约多少硬盘空间。图片是占空间和带宽的，每秒钟24张图片更是如此。如果你能将它们简化为一份描述和一系列规则的话，你也许能大大减少文件大小。即使是非常复杂的动画规则所占的空间和一张中等尺寸的图片相比也要小很多。文件大小也确实是大家注意和偏爱编程动画的最重要地方之一。</p>
+
+<p>通常，我们也要权衡。随着你系统的增大，你的规则也在变的越来越复杂，计算机需要费很大劲去计算下一帧的描述，然后再显示它。如果你需要保持一个特定的帧率，那么给计算机留下时间去处理的时间是有限的。如果计算机不能按时的计算下一场景，你的帧率将受到影响。完全基于图片的动画就不需要考虑这个问题，因为它只需要在正确的时间显示下一幅图片就可以了。</p>
+
+<h2>动态动画和静态动画</h2>
+
+<p>编程动画的最大好处在于它是动态的。图片在运行时才会被构造。与之对应的是像电影片尾一样的预置好的一系列帧，无论你看多少遍，它都不会改变。你也可以为每次观看都创造独特视觉体验，如果你通过用户输入例如：鼠标光标来计算物体位置，那么媒体会和用户产生互动。</p>
+
+<p>但是编程动画也不是必须具有交互性。你可以使用代码让一个物体从某处移到某处。每次都一样的移动。这种我们称之为<em>静态</em>动画。每一帧，从头到尾都是预置好的，就像电影一样。</p>
+
+<p>但是，如果你用程序创建了一个随机移动的物体，每次你播放该动画都会得到不同结果。再比如动画里面的某些因子可以随键盘鼠标输入而动态改变。这就使用户可以和运动的物体进行交互。</p>
+
+<p>也许动画里面最有趣的，也是这本书最关注的就是物体在动画中的数学，物理原理在现实世界中的实现。你可以将一个物体曹任何一个方向移动，你也可以加入重力的影响，使它坠落，当它跌到“地面”，它将弹起一定高度。然后物体将最终停止在那儿。你也可以加入一些交互近来，使用户可以用鼠标“捡起”物体或者用键盘移动它。当用户抛出这个物体时，他会感觉到手里真地拿着东西一样。</p>
+
+<p>对于动态动画，用户不再被动的接收一连串播放的帧，而是走进了你自己创造的场景中去。做为程序员，你有足够的自由去表现你认为合适的场景。这里面有很多乐趣。</p>
 </div>
-</div>
+
+
+    <footer>
+      <p class="meta neighbor clearfix">
+        
+          <a href="/blog/2013/01/10/resume/" class="float-l" title="Previous Post: 简历">&laquo; 简历</a>
+        
+        
+      </p>
+    </footer>
   </article>
-
 
   <section id="disqus_thread"></section>
 </section>
@@ -154,7 +221,7 @@ html,body{height:100%;overflow:hidden}
 
 <script src="/javascripts/application.js"></script>
 
-
+<script>var disqus_shortname="gxcsoccer",disqus_identifier=disqus_url="http://gxcsoccer.github.com/blog/2013/03/02/basic-animation-concepts/",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
 <iframe src="/offline-cache.html" style="display:none"></iframe>
 </body>
 </html>
