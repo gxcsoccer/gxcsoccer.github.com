@@ -4,7 +4,7 @@
   <title><![CDATA[Category: HTML5, | 彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/html5-/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-03-02T21:56:53+08:00</updated>
+  <updated>2013-03-02T22:00:08+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -38,6 +38,9 @@
 <p>当然，如果你已经迫不及待写点代码了，你也可以跳过本章。但是还是强烈建议你读一读，至少帮助你了解动画是如何工作的。</p>
 
 <h2>什么是动画？</h2>
+
+<!--more-->
+
 
 <p>动画是动作（motion）。动作是在一段时间内物体位置的变化。这一分钟它在这儿，下一分钟它跑到那儿去了。通过用数学公式来表示物体的位置，你便能够控制它的下一个位置，影响它移动的行为－－就向赋予了它生命。</p>
 
