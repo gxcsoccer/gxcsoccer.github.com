@@ -1,0 +1,33 @@
+---
+layout: post
+title: "自己写一个seajs的打包工具"
+date: 2012-12-20 01:24
+comments: true
+categories: seajs
+---
+最近的项目中使用了玉伯的[seajs](http://seajs.org)。在项目归档的时候需要把上百个文件combine到一起，本来想用seajs配套的[spm](https://github.com/spmjs/spm)来做，但是看了看似乎有点复杂，索性自己写了一个小工具。
+
+其实我们的需求比较简单：把通过require加载的js文件都打到一个文件里，而通过use加载的就不用了。
+
+combine一般的js文件非常容易，只需要按照依赖顺序做文件的合并即可。但是对于型如：`define(function(){ … })`这样seajs风格文件这样显然是不行，浏览器会狂报404。那么应该如何做呢？
+
+我们在使用define函数去定义一个模块时一般都只会传一个函数作为参数，实际上define函数有三个参数
+
+* id: 模块的标识，如果这个参数不传，会使用文件的url作为文件标识
+* deps: 依赖列表，如果这个参数不传，seajs会分析函数body找出依赖列表
+* body: 模块体
+
+
+<!--more-->
+
+
+{% gist 4504426 %}
+
+那么要合并文件，其实就是要将id和deps参数补全，我的做法是：
+
+1. 设置一个入口文件
+2. 分析文件的依赖关系
+3. 使用文件名作为id，将define参数补齐
+4. 递归处理文件依赖的资源，直到所有依赖文件都已经打包到一起 
+
+具体代码参考[这里](https://github.com/gxcsoccer/scc)
