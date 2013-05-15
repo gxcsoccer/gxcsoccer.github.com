@@ -126,123 +126,12 @@ html,body{height:100%;overflow:hidden}
 </ul>
 
 
-<h2>面向对象的三大特性：</h2>
-
-<ul>
-<li><strong>封装</strong>  和其他语言不同的是，JavaScript里对象没有私有属性的概念，很多时候我们约定以下划线开头的属性为私有的，但这只是一个“君子协议”。如果实在要模拟私有属性，我们可以通过function来构造一个沙箱，沙箱里的局部变量是私有的，外部不能访问，通过function的返回值来暴露接口给外面调用</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>function getObject() {
-</span><span class='line'>  var privateProp = "p"; // 局部变量，外层无法访问
-</span><span class='line'>  
-</span><span class='line'>  return {
-</span><span class='line'>      getProp: function() {
-</span><span class='line'>          return privateProp;
-</span><span class='line'>      },
-</span><span class='line'>      setProp: function(val) {
-</span><span class='line'>          privateProp = val;
-</span><span class='line'>      }
-</span><span class='line'>  };
-</span><span class='line'>}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><strong>继承</strong>  JavaScript的原生语法是不支持继承的，但是其原型链的设计可以很好的支持继承。具体的实现方法有很多种，在这儿不一一列举了。</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var Monster = function(life) {
-</span><span class='line'>  this.life = life;
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>Monster.prototype.eat = function() {
-</span><span class='line'>  this.life += 5;
-</span><span class='line'>};
-</span><span class='line'>
-</span><span class='line'>var Dragon = function() {
-</span><span class='line'>  Monster.call(this, 100);
-</span><span class='line'>};
-</span><span class='line'>
-</span><span class='line'>Dragon.prototype.__proto__ = Monster.prototype;
-</span><span class='line'>
-</span><span class='line'>Dragon.prototype.fight = function() {
-</span><span class='line'>  this.life -= 10;
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><strong>多态</strong>
-这个没什么好说的，对象可以覆盖父类的属性和方法，因为JavaScript是顺着原型链往上查找属性和方法，直到找到为止。</li>
-</ul>
-
-
-<h2>鸭子类型</h2>
-
-<p>作为一门动态语言，对象类型除了可以通过原型链来描述，还可以通过一个简单的对象来表示，即所谓的“鸭子类型”————只要看起来像鸭子，就是鸭子。这种方式可以避免构造过于复杂的原型链。我们可以将常用的功能定义为mixin，需要的话直接拿来用即可。</p>
-
-<h2>几个重要的属性：</h2>
-
-<ul>
-<li><strong>obj.constructor</strong>: 指向对象的构造函数，这个属性可以被修改，但是不能通过修改该属性真正改变原型链</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var Cat = function() {}
-</span><span class='line'>var Dog = function() {}
-</span><span class='line'>var c = new Cat;
-</span><span class='line'>c.constructor = Dog;
-</span><span class='line'>
-</span><span class='line'>c.constructor === Dog     // true
-</span><span class='line'>c instanceof Dog      // false
-</span><span class='line'>c instanceof Cat      // true</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><p><strong>constructor.prototype</strong>: JavaScript里function本身也是一种特殊的对象，它包含一个属性prototype指向另一个对象，用该函数作为构造函数生成的对象就以prototype指向的对象作为原型</p></li>
-<li><p><strong>obj.__proto__</strong>: 在标准浏览器上对象有一个__proto__属性指向对象的原型，其等价于<code>obj.constructor.prototype</code>（如果<code>obj.constructor</code>没有被篡改）</p></li>
-</ul>
-
 </div>
   
+  
+    <footer class="align-r">
+      <a href="/blog/2013/05/16/javascript-oop/#ContinueReading">阅读全文</a>
+    </footer>
   
 
 
