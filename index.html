@@ -5,9 +5,14 @@
   <meta charset="utf-8" />
   <title>彼得_$</title>
   
-  <meta name="description" content="第一章 动画基本概念 2013-03-02 Sat 这一章包含那些内容呢？ 什么是动画？
-帧（Frames）和动作（motion）
-动态动画 vs 静态动画 浏览器从最开始获得互联网文本信息的工具，发展到今天已经逐渐演变成一个完全图像化，交互化的运行环境，迅速地颠覆了我们沟通和分享的方式。 &hellip;" />
+  <meta name="description" content="OPP in JavaScript 2013-05-16 Thu 面向对象的设计思想是语言无关的。但是在实现上JavaScript和其他语言还是有些区别的。 对象的构造： 字面量 可以用JSON风格直接构造一个对象，这是一种非常直接和简洁的对象创建方式。 1
+2
+3
+4
+5
+6
+7
+var &hellip;" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/stylesheets/screen.css" />
   
@@ -42,6 +47,206 @@ html,body{height:100%;overflow:hidden}
 
 <section class="main-wrap clearfix">
   
+  
+  
+    <article>
+      
+
+<header>
+  
+    <h1 class="entry-title"><a href="/blog/2013/05/16/javascript-oop/">OPP in JavaScript</a></h1>
+  
+  
+    <p class="meta">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-16T03:32:00+08:00" pubdate="pubdate" data-updated="true">2013-05-16 Thu</time>
+      
+
+      <span class="share-to-weibo">
+        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=OPP in JavaScript - &amp;url=http://gxcsoccer.github.com/blog/2013/05/16/javascript-oop/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=OPP in JavaScript - &amp;url=http://gxcsoccer.github.com/blog/2013/05/16/javascript-oop/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=OPP in JavaScript - http://gxcsoccer.github.com/blog/2013/05/16/javascript-oop/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
+      </span>
+    </p>
+  
+</header>
+
+
+  <div class="entry-content typo"><blockquote><p>面向对象的设计思想是语言无关的。但是在实现上JavaScript和其他语言还是有些区别的。</p></blockquote>
+
+<h2>对象的构造：</h2>
+
+<ul>
+<li><strong>字面量</strong>  可以用JSON风格直接构造一个对象，这是一种非常直接和简洁的对象创建方式。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var obj = {
+</span><span class='line'>  name: "Peter Gao",
+</span><span class='line'>  age: 29
+</span><span class='line'>};
+</span><span class='line'>
+</span><span class='line'>obj.sex = "male";
+</span><span class='line'>delete obj.age;</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<ul>
+<li><p><strong>构造函数</strong>  和其他面向对象语言类似，我们可以使用new关键字加构造函数的方式来创建一个对象，在<code>new A</code>的时候JavaScript引擎做了下面几件事情：</p>
+
+<ol>
+<li>创建一个新的对象</li>
+<li>将对象的contructor属性设置为A</li>
+<li>将A.prototype设置为新对象的原型</li>
+<li>以新对象为上下文(context)执行A</li>
+</ol>
+</li>
+<li><p><strong>Object.create</strong>  这是ECMAScript 5里面提供的一个新方法，通过这个方法我们可以直接指定对象的原型。甚至通过<code>Object.create(null)</code>我们可以创建一个没有原型的“干净”对象</p></li>
+</ul>
+
+
+<h2>面向对象的三大特性：</h2>
+
+<ul>
+<li><strong>封装</strong>  和其他语言不同的是，JavaScript里对象没有私有属性的概念，很多时候我们约定以下划线开头的属性为私有的，但这只是一个“君子协议”。如果实在要模拟私有属性，我们可以通过function来构造一个沙箱，沙箱里的局部变量是私有的，外部不能访问，通过function的返回值来暴露接口给外面调用</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function getObject() {
+</span><span class='line'>  var privateProp = "p"; // 局部变量，外层无法访问
+</span><span class='line'>  
+</span><span class='line'>  return {
+</span><span class='line'>      getProp: function() {
+</span><span class='line'>          return privateProp;
+</span><span class='line'>      },
+</span><span class='line'>      setProp: function(val) {
+</span><span class='line'>          privateProp = val;
+</span><span class='line'>      }
+</span><span class='line'>  };
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><strong>继承</strong>  JavaScript的原生语法是不支持继承的，但是其原型链的设计可以很好的支持继承。具体的实现方法有很多种，在这儿不一一列举了。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var Monster = function(life) {
+</span><span class='line'>  this.life = life;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>Monster.prototype.eat = function() {
+</span><span class='line'>  this.life += 5;
+</span><span class='line'>};
+</span><span class='line'>
+</span><span class='line'>var Dragon = function() {
+</span><span class='line'>  Monster.call(this, 100);
+</span><span class='line'>};
+</span><span class='line'>
+</span><span class='line'>Dragon.prototype.__proto__ = Monster.prototype;
+</span><span class='line'>
+</span><span class='line'>Dragon.prototype.fight = function() {
+</span><span class='line'>  this.life -= 10;
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><strong>多态</strong>
+这个没什么好说的，对象可以覆盖父类的属性和方法，因为JavaScript是顺着原型链往上查找属性和方法，直到找到为止。</li>
+</ul>
+
+
+<h2>鸭子类型</h2>
+
+<p>作为一门动态语言，对象类型除了可以通过原型链来描述，还可以通过一个简单的对象来表示，即所谓的“鸭子类型”————只要看起来像鸭子，就是鸭子。这种方式可以避免构造过于复杂的原型链。我们可以将常用的功能定义为mixin，需要的话直接拿来用即可。</p>
+
+<h2>几个重要的属性：</h2>
+
+<ul>
+<li><strong>obj.constructor</strong>: 指向对象的构造函数，这个属性可以被修改，但是不能通过修改该属性真正改变原型链</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var Cat = function() {}
+</span><span class='line'>var Dog = function() {}
+</span><span class='line'>var c = new Cat;
+</span><span class='line'>c.constructor = Dog;
+</span><span class='line'>
+</span><span class='line'>c.constructor === Dog     // true
+</span><span class='line'>c instanceof Dog      // false
+</span><span class='line'>c instanceof Cat      // true</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p><strong>constructor.prototype</strong>: JavaScript里function本身也是一种特殊的对象，它包含一个属性prototype指向另一个对象，用该函数作为构造函数生成的对象就以prototype指向的对象作为原型</p></li>
+<li><p><strong>obj.__proto__</strong>: 在标准浏览器上对象有一个__proto__属性指向对象的原型，其等价于<code>obj.constructor.prototype</code>（如果<code>obj.constructor</code>没有被篡改）</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
