@@ -4,7 +4,7 @@
   <title><![CDATA[彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-05-16T07:40:15+08:00</updated>
+  <updated>2013-05-20T06:47:31+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -12,6 +12,85 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[闭包总结]]></title>
+    <link href="http://gxcsoccer.github.com/blog/2013/05/20/closure-summary/"/>
+    <updated>2013-05-20T04:58:00+08:00</updated>
+    <id>http://gxcsoccer.github.com/blog/2013/05/20/closure-summary</id>
+    <content type="html"><![CDATA[<h2>什么是“闭包”?</h2>
+
+<p>通俗讲闭包就是&#8211;定义在函数内部的函数可以访问外层作用域的变量。当然这只是闭包的表象，要理解闭包我们先要澄清两个容易混淆的概念。</p>
+
+<h2>执行环境（Execute Context）</h2>
+
+<p>当进入（开始执行）一段可执行代码时，便生成一个执行环境对象。</p>
+
+<p>一个执行环境（Execute Context）包含三个要素：</p>
+
+<ul>
+<li>词法环境 – LexicalEnvironment</li>
+<li>变量环境 – VariableEnvironment</li>
+<li>This绑定 - ThisBinding</li>
+</ul>
+
+
+<p>注：词法环境在我理解就是所谓的“作用域”。</p>
+
+<h2>作用域（Scope）</h2>
+
+<p>JavaScript只有两种作用域（没有块级作用域）</p>
+
+<ul>
+<li><p>全局作用域：即全局可以访问的作用域，包括下面一些</p>
+
+<ol>
+<li>最外层定义的变量和函数</li>
+<li>未定义直接赋值的变量</li>
+<li>Global对象的属性</li>
+</ol>
+</li>
+<li><p>局部作用域：只有固定代码片段可以访问，创建局部作用域（词法环境）的方式有</p>
+
+<ol>
+<li>执行函数</li>
+<li>执行Catch语句</li>
+<li>with</li>
+</ol>
+</li>
+</ul>
+
+
+<!--more-->
+
+
+<h2>作用域链（Scope）</h2>
+
+<p>在JavaScript中，函数有一个内部属性[[Scope]]，由ECMA-262标准第三版定义，该内部属性包含了函数被创建的作用域中对象的集合，这个集合被称为函数的作用域链，它决定了哪些数据能被函数访问。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function foo() {
+</span><span class='line'>  var bar = 3;
+</span><span class='line'>  return bar;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>foo();</span></code></pre></td></tr></table></div></figure>
+
+
+<p>例如上面函数foo是在全局作用域上创建的，所以全局对象就填充到其作用域链上了。在执行foo函数的时候，会创建一个新的执行环境（Execute Context）包括一个新的词法环境（作用域），并将其推到作用域链的前端。</p>
+
+<p><strong>现在回过来想想为什么JavaScript语言会有闭包就很容易理解了。因为ECMAScript中变量解析是一个自内向外查找过程，而非绑定过程。</strong></p>
+
+<h2>闭包的实践</h2>
+
+<p>&lt;未完待续></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OPP in JavaScript]]></title>

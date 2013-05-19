@@ -5,14 +5,7 @@
   <meta charset="utf-8" />
   <title>彼得_$</title>
   
-  <meta name="description" content="OPP in JavaScript 2013-05-16 Thu 面向对象的设计思想是语言无关的。但是在实现上JavaScript和其他语言还是有些区别的。 对象的构造： 字面量 可以用JSON风格直接构造一个对象，这是一种非常直接和简洁的对象创建方式。 1
-2
-3
-4
-5
-6
-7
-var &hellip;" />
+  <meta name="description" content="闭包总结 2013-05-20 Mon 什么是“闭包”? 通俗讲闭包就是&#8211;定义在函数内部的函数可以访问外层作用域的变量。当然这只是闭包的表象，要理解闭包我们先要澄清两个容易混淆的概念。 执行环境（Execute Context） 当进入（开始执行）一段可执行代码时， &hellip;" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/stylesheets/screen.css" />
   
@@ -47,6 +40,97 @@ html,body{height:100%;overflow:hidden}
 
 <section class="main-wrap clearfix">
   
+  
+  
+    <article>
+      
+
+<header>
+  
+    <h1 class="entry-title"><a href="/blog/2013/05/20/closure-summary/">闭包总结</a></h1>
+  
+  
+    <p class="meta">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-20T04:58:00+08:00" pubdate="pubdate" data-updated="true">2013-05-20 Mon</time>
+      
+
+      <span class="share-to-weibo">
+        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=闭包总结 - &amp;url=http://gxcsoccer.github.com/blog/2013/05/20/closure-summary/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=闭包总结 - &amp;url=http://gxcsoccer.github.com/blog/2013/05/20/closure-summary/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=闭包总结 - http://gxcsoccer.github.com/blog/2013/05/20/closure-summary/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
+      </span>
+    </p>
+  
+</header>
+
+
+  <div class="entry-content typo"><h2>什么是“闭包”?</h2>
+
+<p>通俗讲闭包就是&#8211;定义在函数内部的函数可以访问外层作用域的变量。当然这只是闭包的表象，要理解闭包我们先要澄清两个容易混淆的概念。</p>
+
+<h2>执行环境（Execute Context）</h2>
+
+<p>当进入（开始执行）一段可执行代码时，便生成一个执行环境对象。</p>
+
+<p>一个执行环境（Execute Context）包含三个要素：</p>
+
+<ul>
+<li>词法环境 – LexicalEnvironment</li>
+<li>变量环境 – VariableEnvironment</li>
+<li>This绑定 - ThisBinding</li>
+</ul>
+
+
+<p>注：词法环境在我理解就是所谓的“作用域”。</p>
+
+<h2>作用域（Scope）</h2>
+
+<p>JavaScript只有两种作用域（没有块级作用域）</p>
+
+<ul>
+<li><p>全局作用域：即全局可以访问的作用域，包括下面一些</p>
+
+<ol>
+<li>最外层定义的变量和函数</li>
+<li>未定义直接赋值的变量</li>
+<li>Global对象的属性</li>
+</ol>
+</li>
+<li><p>局部作用域：只有固定代码片段可以访问，创建局部作用域（词法环境）的方式有</p>
+
+<ol>
+<li>执行函数</li>
+<li>执行Catch语句</li>
+<li>with</li>
+</ol>
+</li>
+</ul>
+
+
+</div>
+  
+  
+    <footer class="align-r">
+      <a href="/blog/2013/05/20/closure-summary/#ContinueReading">阅读全文</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
