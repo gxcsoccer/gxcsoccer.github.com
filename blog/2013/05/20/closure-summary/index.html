@@ -182,13 +182,15 @@ html,body{height:100%;overflow:hidden}
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>直接执行一个匿名函数，并将索引值<code>i</code>作为参数传入，在匿名函数内部返回另外一个匿名函数作为事件绑定的回调函数。根据闭包的原理，内部的匿名函数可以访问外层匿名函数的局部变量index，以此实现点击每个box可以弹出不同的提示。</p>
+
 <h3>私有变量和方法</h3>
 
-<p>上一篇文章提到过用闭包模拟OOP中的私有变量和方法</p>
+<p>上一篇文章提到过用闭包模拟OOP中的私有变量和方法，在此不在赘述了。</p>
 
-<h3>函数的绑定和柯立化</h3>
+<h3>函数的绑定</h3>
 
-<p>在ES 5里面函数提供了一个新的方法bind，它可以指定函数执行环境所绑定的this对象，实际上这个方法也是闭包的完美应用</p>
+<p>由于JavaScript的异步特性，我们经常需要在执行一个操作时传入一个回调函数，默认情况下这个函数会绑定到global对象上执行，大多数时候这显然不是我们所要的，我们希望能够指定回调函数的this对象。在ES 5里面函数有一个bind方法，可以原生支持函数this的绑定，而在ES 3里我们也可以用闭包来模拟这个方法的实现</p>
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
