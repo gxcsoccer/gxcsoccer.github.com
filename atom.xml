@@ -4,7 +4,7 @@
   <title><![CDATA[彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-05-26T07:15:57+08:00</updated>
+  <updated>2013-05-26T08:00:23+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[浅谈display, position, float]]></title>
+    <link href="http://gxcsoccer.github.com/blog/2013/05/26/css-summary/"/>
+    <updated>2013-05-26T07:18:00+08:00</updated>
+    <id>http://gxcsoccer.github.com/blog/2013/05/26/css-summary</id>
+    <content type="html"><![CDATA[<p>display, position, float三者可以说是CSS布局里最基本也最常用的属性。在此对这三个属性的可选值以及互相叠加的效果做一个总结。</p>
+
+<h2>基本概念</h2>
+
+<h3>position</h3>
+
+<p>通过该属性可以设置节点的定位方式，可选的值有：</p>
+
+<ul>
+<li>absolute 绝对定位</li>
+<li>relative 相对定位</li>
+<li>static 正常文本流</li>
+<li>fixed 固定定位</li>
+</ul>
+
+
+<h3>float</h3>
+
+<p>通过该属性可以设置节点的浮动方式，可选的值有：</p>
+
+<ul>
+<li>none 不浮动</li>
+<li>left 向右浮动</li>
+<li>right 向右浮动</li>
+</ul>
+
+
+<h3>display</h3>
+
+<p>display属性指定了浏览器通过什么样的“盒子”来渲染当前节点。display可选的值有很多，主要可以分为下面几类，本文主要讨论前面两类常用的。</p>
+
+<h4>基本值</h4>
+
+<ul>
+<li>none</li>
+<li>inline</li>
+<li>block</li>
+</ul>
+
+
+<h4>CSS 2.1扩展值</h4>
+
+<ul>
+<li>inline-block</li>
+</ul>
+
+
+<h4>表格</h4>
+
+<h4>Flex Box</h4>
+
+<h4>Grid Box</h4>
+
+<!--more-->
+
+
+<h2>组合</h2>
+
+<p>&lt;未完待续></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[闭包总结]]></title>
