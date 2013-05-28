@@ -4,7 +4,7 @@
   <title><![CDATA[彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-05-29T01:37:12+08:00</updated>
+  <updated>2013-05-29T01:39:29+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -36,6 +36,9 @@
 <li><p>fixed 固定定位<br/>
 相对于浏览器的“视口”进行定位，视口大小不受文本流大小影响。</p></li>
 </ul>
+
+
+<!--more-->
 
 
 <h3>float</h3>
@@ -94,9 +97,6 @@
 <h4>Grid Box</h4>
 
 <p>只有IE10支持，具体可以参考<a href="http://dev.w3.org/csswg/css3-grid-layout/">这里</a>。</p>
-
-<!--more-->
-
 
 <h2>组合</h2>
 
