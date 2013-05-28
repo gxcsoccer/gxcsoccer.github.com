@@ -23,6 +23,8 @@ display, position, float三者可以说是CSS布局里最基本也最常用的�
 * fixed 固定定位  
 相对于浏览器的“视口”进行定位，视口大小不受文本流大小影响。
 
+<!--more-->
+
 ###float
 通过该属性可以设置节点的浮动方式，可选的值有：  
 
@@ -59,8 +61,6 @@ display属性决定了浏览器用什么样的“盒子”来渲染当前节点�
 
 ####Grid Box
 只有IE10支持，具体可以参考[这里](http://dev.w3.org/csswg/css3-grid-layout/)。
-
-<!--more-->
 
 ##组合
 1. 绝对定位会强制生成块级元素，也就是说position设为absolute后，display的值将被忽略
