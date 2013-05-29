@@ -100,15 +100,16 @@ html,body{height:100%;overflow:hidden}
 
 <h3>float</h3>
 
-<p>通过该属性可以设置节点的浮动方式，可选的值有：</p>
+<p>浮动和绝对定位类似，被浮动的元素也会从文本流中抽离，不同的是它会曹着指定方向浮动直到碰到容器的边界或者另外一个浮动的元素，就好像顺着水流浮动的木箱子。可选的值有：</p>
 
 <ul>
 <li>none 不浮动，默认值</li>
-<li><p>left 向左浮动<br/>
-浮动和绝对定位类似，被浮动的元素也会从文本流中抽离，不同的是它会曹着指定方向浮动直到碰到容器的边界或者另外一个浮动的元素，就好像顺着水流浮动的木箱子。向左浮动顾名思义就是向左浮动到左边缘或者碰到另外一个向左浮动的元素。</p></li>
-<li><p>right 向右浮动<br/>
-和向左浮动类似，只是方向相反。</p></li>
+<li>left 向左浮动</li>
+<li>right 向右浮动</li>
 </ul>
+
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/rQutX/embedded/result,css,html/light/"></iframe>
 
 
 <h3>display</h3>
@@ -155,17 +156,15 @@ html,body{height:100%;overflow:hidden}
 
 <p>只有IE10支持，具体可以参考<a href="http://dev.w3.org/csswg/css3-grid-layout/">这里</a>。</p>
 
-<h2>组合</h2>
+<h2>三种属性相互叠加的效果</h2>
 
 <ol>
-<li>绝对定位会强制生成块级元素，也就是说position设为absolute后，display的值将被忽略</li>
-<li>浮动也会导致display值变为block，除非了少数不支持浮动的display值</li>
+<li>绝对定位和fixed定位会强制生成块级元素，display的computed值为block</li>
+<li>浮动也会导致display值变为block，除了少数不支持浮动的display值(如：flex)</li>
 <li>绝对定位和浮动放在一起，浮动无效</li>
 <li>fixed定位和浮动放在一起，浮动无效</li>
 </ol>
 
-
-<p>&lt;未完待续></p>
 </div>
 
 
