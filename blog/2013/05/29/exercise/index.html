@@ -3,9 +3,9 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>浅谈display, position, float - 彼得_$</title>
+  <title>答题 - 彼得_$</title>
   
-  <meta name="description" content="浅谈display, Position, Float 2013-05-26 Sun display, position, float三者可以说是CSS布局里最基本也最常用的属性。在此对这三个属性的可选值以及互相叠加的效果做一个总结。 基本概念 position 通过该属性可以设置节点的定位方式， &hellip;" />
+  <meta name="description" content="答题 2013-05-29 Wed 下面是我对寒冬老师题目的答案。 1. 你对前端职业发展有何看法？ 相比后端，前端具备更加丰富的知识结构，职业发展的方向应该更加广阔。但是选择多了，也可能会迷茫，再加上目前国内前端发展参差不齐，地域差异严重，主要机会都集中在北、上、杭、深等城市。所以， &hellip;" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/stylesheets/screen.css" />
   
@@ -44,7 +44,7 @@ html,body{height:100%;overflow:hidden}
 
 <header>
   
-    <h1 class="entry-title">浅谈display, Position, Float</h1>
+    <h1 class="entry-title">答题</h1>
   
   
     <p class="meta">
@@ -60,121 +60,93 @@ html,body{height:100%;overflow:hidden}
   
 
 
-<time datetime="2013-05-26T07:18:00+08:00" pubdate="pubdate" data-updated="true">2013-05-26 Sun</time>
+<time datetime="2013-05-29T23:33:00+08:00" pubdate="pubdate" data-updated="true">2013-05-29 Wed</time>
       
 
       <span class="share-to-weibo">
-        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=浅谈display, Position, Float - &amp;url=http://gxcsoccer.github.com/blog/2013/05/26/css-summary/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
+        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=答题 - &amp;url=http://gxcsoccer.github.com/blog/2013/05/29/exercise/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
 
-        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=浅谈display, Position, Float - &amp;url=http://gxcsoccer.github.com/blog/2013/05/26/css-summary/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
+        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=答题 - &amp;url=http://gxcsoccer.github.com/blog/2013/05/29/exercise/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
 
-        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=浅谈display, Position, Float - http://gxcsoccer.github.com/blog/2013/05/26/css-summary/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
+        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=答题 - http://gxcsoccer.github.com/blog/2013/05/29/exercise/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
       </span>
     </p>
   
 </header>
 
 
-  <div class="entry-content typo"><p>display, position, float三者可以说是CSS布局里最基本也最常用的属性。在此对这三个属性的可选值以及互相叠加的效果做一个总结。</p>
+  <div class="entry-content typo"><p>下面是我对寒冬老师<a href="https://github.com/wintercn/blog/issues/5">题目</a>的答案。</p>
 
-<h2>基本概念</h2>
+<h3>1. 你对前端职业发展有何看法？</h3>
 
-<h3>position</h3>
+<p>相比后端，前端具备更加丰富的知识结构，职业发展的方向应该更加广阔。但是选择多了，也可能会迷茫，再加上目前国内前端发展参差不齐，地域差异严重，主要机会都集中在北、上、杭、深等城市。所以，我的看法是首先争取进入一个优秀的团队，和优秀的人一起做事，不断提高自己；另外我认为无论是转管理，转产品还是一直做技术都不重要，重要的是你的职业生涯是往上走的。就我个人而言，未来两到三年内重心还是放在技术上面，希望能够完成一或几个自己满意的作品。</p>
 
-<p>通过该属性可以设置节点的定位方式，可选的值有：</p>
+<h3>2. 前端和后端程序员应该如何合作？</h3>
+
+<p>前端要拥抱变化，而后端希望保持稳定，必然会有争执。作为前端开发，我们可以承担更多的职责。比如：在瘦服务器端的架构里面服务端只提供数据，页面的渲染和业务逻辑都由终端来完成；在Nodejs出现以后，前端的定义已经不局限在客户端，在平台不变的情况下，我们完全可以自己给自己搭一道桥来完成新的需求。同时，前端应该对平台的更新起到牵引作用。最后，不光是前后端，任何高效的团队合作都需要解耦，我们可以通过合理的接口定义划分好各自的职责，然后通过打桩等方式模拟接口实现，最后通过两两联调和集成测试来完成对接。</p>
+
+<h3>3. 讲几个你在项目中解决的让你印象最深的问题（难、匪夷所思、解决方案有趣都可以）</h3>
+
+<p>选了几个项目中遇到的问题分享给大家</p>
 
 <ul>
-<li><p>absolute 绝对定位<br/>
-从文本流中抽离出来，单独生成一个“块级”盒子。该盒子的位置将相对于“显示定位”的父节点左上角来定位，如果没有“显示定位”的父节点就以body元素左上角为原点。</p></li>
-<li><p>relative 相对定位<br/>
-相对定位是以元素“原来”位置的基础上来定位。元素在文本流中的原始位置会保留，不会被其他元素占据</p></li>
-<li><p>static 正常文本流<br/>
-默认值，不定位</p></li>
-<li><p>fixed 固定定位<br/>
-相对于浏览器的“视口”进行定位，视口大小不受文本流大小影响。</p></li>
+<li><p>overflow hidden的问题<br/>
+在做IPTV的前端项目的时候经常需要一些动画效果，在浏览器上调本来是好的，但在机顶盒上背景有了视频流，就会出现各种匪夷所思的问题，经过漫长的排查发现跟父容器设置了overflow: hidden有关，目前我的解决方案主要有两个，第一，去掉没有必要的overflow:hidden设置，第二，尽量用css3的transform3d代替left, top来做动画。 不过到目前为止，我还没查到一个比较权威的关于该问题的解答，我猜想是动画和滚动条互相影响导致的。</p></li>
+<li><p>如何停掉css3动画<br/>
+http://gxcsoccer.github.io/blog/2012/09/04/how-to-stop-css3-transition/</p></li>
+<li><p>深拷贝的问题<br/>
+在做前端缓存的时候，为了避免使用者污染数据，返回的时候需要做一次深拷贝。实现严谨的深拷贝是比较麻烦的，但是在大多数情况下我们缓存的是一个plainObject，所以用JSON.parse(JSON.stringify(obj)) 就实现我们的需求。</p></li>
 </ul>
 
 
-<!--more-->
+<h3>4. 在JavaScript面向对象方面，你有什么体会和实践？</h3>
 
+<p><a href="http://gxcsoccer.github.io/blog/2013/05/16/javascript-oop/">http://gxcsoccer.github.io/blog/2013/05/16/javascript-oop/</a></p>
 
-<h3>float</h3>
+<h3>5. 谈谈JavaScript中的闭包，以及你的实践。</h3>
 
-<p>浮动和绝对定位类似，被浮动的元素也会从文本流中抽离，不同的是它会曹着指定方向浮动直到碰到容器的边界或者另外一个浮动的元素，就好像顺着水流浮动的木箱子。可选的值有：</p>
+<p><a href="http://gxcsoccer.github.io/blog/2013/05/20/closure-summary/">http://gxcsoccer.github.io/blog/2013/05/20/closure-summary/</a></p>
+
+<h3>6. 说说 http://m.taobao.com 前端做的最烂的地方，以及你的改进。</h3>
+
+<p>m.taobao.com用的机会很少，简单看了下直观的感觉就是土，估计是为了兼容低端的机型吧。我的建议是通过响应式和渐进增强改善智能机的访问体验。</p>
+
+<h3>7. 谈几个有趣的html标签，以及它们的语义。</h3>
+
+<p>HTML5里面提供很多新的具有语义标签，不过要说有趣我认为还是下面两个，因为它们可以做很多很多有趣的事情</p>
 
 <ul>
-<li>none 不浮动，默认值</li>
-<li>left 向左浮动</li>
-<li>right 向右浮动</li>
+<li>canvas 画布，HTML5里面最重要的特性之一，有了它我们可以做出很多“疯狂”的2D/3D效果</li>
+<li>video 使浏览器不依赖插件便可播放和操作视频流</li>
 </ul>
 
 
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/rQutX/embedded/result,css,html/light/"></iframe>
+<h3>8. 讲一讲CSS的position/float/display都有哪些取值，它们相互叠加时的行为都是什么？</h3>
 
+<p><a href="http://gxcsoccer.github.io/blog/2013/05/26/css-summary/">http://gxcsoccer.github.io/blog/2013/05/26/css-summary/</a></p>
 
-<h3>display</h3>
+<h3>9. 说几个你觉得有趣的CSS3选择器，以及他们有趣的用法。</h3>
 
-<p>display属性决定了浏览器用什么样的“盒子”来渲染当前节点。display可选的值有很多，主要可以分为下面几类，本文主要讨论常用的4种取值。</p>
+<p>nth-child(n)，:before/after等等，这些选择器的好处在于不用添加多余的id，class或者元素节点，来实现一些视觉上的效果，例如：给固定位置的子元素设定样式可以使用nth-child(n)或者first-child/last-child，而不用添加多余的id/class，又比如给某一个元素添加一个图标，可以使用before/after伪类，而不用添加一个多余的标签。这让HTML文档更简洁，更纯粹。</p>
 
-<h4>基本常用的值</h4>
+<h3>10. 自己问自己一道代表你水平的面试题，然后回答。</h3>
 
-<ul>
-<li><strong>none</strong> 从DOM树上上移除该节点（包括其子节点），不会产生任何的“盒子”</li>
-<li><strong>inline</strong> 这是display的默认值，行内元素不会“打断”正常的文本流，它会顺着文本流的方向横向的排列。<br/>
-注：行内元素的width和height属性是不起作用的，margin和padding也只在水平方向排挤其他元素。</li>
-</ul>
+<p>就讲讲平时怎么做性能优化的吧？</p>
 
-
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/qPeZR/embedded/result,css,html/light/"></iframe>
-
-
-<ul>
-<li><strong>block</strong> 和行内盒子不同的是，块级的盒子是垂直方向排列的，它会截断前后的文本流另起一行显示，如果不设置宽度则会尽可能占满正行。</li>
-</ul>
-
-
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/QEr8W/embedded/result,css,html/light/"></iframe>
-
-
-<ul>
-<li><strong>inline-block</strong> 结合了inline和block的特点，顺着文本流的方式水平排列，但是可以设置高度、宽度、margin和padding等。</li>
-</ul>
-
-
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/spsbj/embedded/result,css,html/light/"></iframe>
-
-
-<h4>和表格相关的值</h4>
-
-<p>包括了table, table-cell, table-column, table-colgroup, table-header-group等等，它们都强制元素以表格的方式呈现，这里不详细讲了</p>
-
-<h4>Flex Box</h4>
-
-<p>具体参考<a href="http://css-tricks.com/snippets/css/a-guide-to-flexbox/">这里</a></p>
-
-<h4>Grid Box</h4>
-
-<p>只有IE10支持，具体可以参考<a href="http://dev.w3.org/csswg/css3-grid-layout/">这里</a>。</p>
-
-<h2>三种属性相互叠加的效果</h2>
-
-<ol>
-<li>绝对定位和fixed定位会强制生成块级元素，display的computed值为block</li>
-<li>浮动也会导致display值变为block，除了少数不支持浮动的display值(如：flex)</li>
-<li>绝对定位和浮动放在一起，浮动无效</li>
-<li>fixed定位和浮动放在一起，浮动无效</li>
-</ol>
-
+<p>答：
+1. 首先是要识别出性能问题，很多时候客户的表达是“页面卡，动画抖动”等等模糊的描述，而对于程序员我们需要一些更数据化，更确切的证据。这时我们可能需要依靠一些工具或者行业标准帮助我们判断，比如：我们可以测算页面帧率的变化曲线，对于那些低于25帧的地方我们就认为可能有性能的问题。
+2. 其次，我们需要找到性能问题的瓶颈，做有针对性的改进。这个可能需要一些经验的积累，也可以辅以一些工具，比如：Chrome DevelopeTool等，在项目中我常碰到的性能问题主要有几种: a) DOM操作频繁，b) JavaScript代码问题，c) 频繁的IO操作，d) 动画性能 <br/>
+3. 那么针对上面的问题，我们可以做一些修改：DOM操作频繁，我们可以通过缓存DOM元素，模板等方式减少直接操作DOM Tree的次数；优化低效的JavaScript代码，例如：避免嵌套的循环，避免过深层次的递归，记得清理定时器等等；对于频繁的IO操作我们可以使用合并请求以及缓存数据来规避；对于动画性能，我们可以尝试用tranform 3d+transition替换jquery动画。<br/>
+4. 性能问题往往是复杂而且综合性的，我们需要经验但是不能迷信经验，如果我们做了上面的努力性能还是不令人满意，通常我们可以选择和浏览器厂商或者中间件厂商进行合作，共同定位、解决问题。<br/>
+5. 如果最终还不能解决问题，那么可能就需要考虑从设计或者功能上做一些取舍来达到一个平衡点。</p>
 </div>
 
 
     <footer>
       <p class="meta neighbor clearfix">
         
-          <a href="/blog/2013/05/20/closure-summary/" class="float-l" title="Previous Post: 闭包总结">&laquo; 闭包总结</a>
+          <a href="/blog/2013/05/26/css-summary/" class="float-l" title="Previous Post: 浅谈display, position, float">&laquo; 浅谈display, position, float</a>
         
-        
-          <a href="/blog/2013/05/29/exercise/" class="float-r" title="Next Post: 答题">答题 &raquo;</a>
         
       </p>
     </footer>
@@ -243,7 +215,7 @@ html,body{height:100%;overflow:hidden}
 
 <script src="/javascripts/application.js"></script>
 
-<script>var disqus_shortname="gxcsoccer",disqus_identifier=disqus_url="http://gxcsoccer.github.com/blog/2013/05/26/css-summary/",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
+<script>var disqus_shortname="gxcsoccer",disqus_identifier=disqus_url="http://gxcsoccer.github.com/blog/2013/05/29/exercise/",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
 <iframe src="/offline-cache.html" style="display:none"></iframe>
 </body>
 </html>

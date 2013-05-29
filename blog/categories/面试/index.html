@@ -3,9 +3,10 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>浅谈display, position, float - 彼得_$</title>
+  <title>Category: 面试 - 彼得_$</title>
   
-  <meta name="description" content="浅谈display, Position, Float 2013-05-26 Sun display, position, float三者可以说是CSS布局里最基本也最常用的属性。在此对这三个属性的可选值以及互相叠加的效果做一个总结。 基本概念 position 通过该属性可以设置节点的定位方式， &hellip;" />
+  <meta name="description" content=" Category: 面试 2013 答题
+May 29 2013 posted in 面试 " />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/stylesheets/screen.css" />
   
@@ -39,146 +40,38 @@ html,body{height:100%;overflow:hidden}
 <header class="my-nickname"><em title="">彼得_$</em></header>
 
 <section class="main-wrap clearfix">
+
+
   <article role="article">
     
-
-<header>
-  
-    <h1 class="entry-title">浅谈display, Position, Float</h1>
-  
-  
-    <p class="meta">
+    <header>
+      <h1 class="entry-title">Category: 面试</h1>
       
-
-
-
-
-
+    </header>
+    
+    <div class="entry-content typo"><div id="blog-archives" class="category">
 
 
 
   
+  <h2>2013</h2>
 
-
-<time datetime="2013-05-26T07:18:00+08:00" pubdate="pubdate" data-updated="true">2013-05-26 Sun</time>
-      
-
-      <span class="share-to-weibo">
-        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=浅谈display, Position, Float - &amp;url=http://gxcsoccer.github.com/blog/2013/05/26/css-summary/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
-
-        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=浅谈display, Position, Float - &amp;url=http://gxcsoccer.github.com/blog/2013/05/26/css-summary/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
-
-        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=浅谈display, Position, Float - http://gxcsoccer.github.com/blog/2013/05/26/css-summary/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
-      </span>
-    </p>
+<article>
   
-</header>
+<h1><a href="/blog/2013/05/29/exercise/">答题</a></h1>
+<time datetime="2013-05-29T23:33:00+08:00" pubdate><span class='month'>May</span> <span class='day'>29</span> <span class='year'>2013</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/面试/'>面试</a></span>
+</footer>
 
 
-  <div class="entry-content typo"><p>display, position, float三者可以说是CSS布局里最基本也最常用的属性。在此对这三个属性的可选值以及互相叠加的效果做一个总结。</p>
-
-<h2>基本概念</h2>
-
-<h3>position</h3>
-
-<p>通过该属性可以设置节点的定位方式，可选的值有：</p>
-
-<ul>
-<li><p>absolute 绝对定位<br/>
-从文本流中抽离出来，单独生成一个“块级”盒子。该盒子的位置将相对于“显示定位”的父节点左上角来定位，如果没有“显示定位”的父节点就以body元素左上角为原点。</p></li>
-<li><p>relative 相对定位<br/>
-相对定位是以元素“原来”位置的基础上来定位。元素在文本流中的原始位置会保留，不会被其他元素占据</p></li>
-<li><p>static 正常文本流<br/>
-默认值，不定位</p></li>
-<li><p>fixed 固定定位<br/>
-相对于浏览器的“视口”进行定位，视口大小不受文本流大小影响。</p></li>
-</ul>
-
-
-<!--more-->
-
-
-<h3>float</h3>
-
-<p>浮动和绝对定位类似，被浮动的元素也会从文本流中抽离，不同的是它会曹着指定方向浮动直到碰到容器的边界或者另外一个浮动的元素，就好像顺着水流浮动的木箱子。可选的值有：</p>
-
-<ul>
-<li>none 不浮动，默认值</li>
-<li>left 向左浮动</li>
-<li>right 向右浮动</li>
-</ul>
-
-
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/rQutX/embedded/result,css,html/light/"></iframe>
-
-
-<h3>display</h3>
-
-<p>display属性决定了浏览器用什么样的“盒子”来渲染当前节点。display可选的值有很多，主要可以分为下面几类，本文主要讨论常用的4种取值。</p>
-
-<h4>基本常用的值</h4>
-
-<ul>
-<li><strong>none</strong> 从DOM树上上移除该节点（包括其子节点），不会产生任何的“盒子”</li>
-<li><strong>inline</strong> 这是display的默认值，行内元素不会“打断”正常的文本流，它会顺着文本流的方向横向的排列。<br/>
-注：行内元素的width和height属性是不起作用的，margin和padding也只在水平方向排挤其他元素。</li>
-</ul>
-
-
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/qPeZR/embedded/result,css,html/light/"></iframe>
-
-
-<ul>
-<li><strong>block</strong> 和行内盒子不同的是，块级的盒子是垂直方向排列的，它会截断前后的文本流另起一行显示，如果不设置宽度则会尽可能占满正行。</li>
-</ul>
-
-
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/QEr8W/embedded/result,css,html/light/"></iframe>
-
-
-<ul>
-<li><strong>inline-block</strong> 结合了inline和block的特点，顺着文本流的方式水平排列，但是可以设置高度、宽度、margin和padding等。</li>
-</ul>
-
-
-<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/spsbj/embedded/result,css,html/light/"></iframe>
-
-
-<h4>和表格相关的值</h4>
-
-<p>包括了table, table-cell, table-column, table-colgroup, table-header-group等等，它们都强制元素以表格的方式呈现，这里不详细讲了</p>
-
-<h4>Flex Box</h4>
-
-<p>具体参考<a href="http://css-tricks.com/snippets/css/a-guide-to-flexbox/">这里</a></p>
-
-<h4>Grid Box</h4>
-
-<p>只有IE10支持，具体可以参考<a href="http://dev.w3.org/csswg/css3-grid-layout/">这里</a>。</p>
-
-<h2>三种属性相互叠加的效果</h2>
-
-<ol>
-<li>绝对定位和fixed定位会强制生成块级元素，display的computed值为block</li>
-<li>浮动也会导致display值变为block，除了少数不支持浮动的display值(如：flex)</li>
-<li>绝对定位和浮动放在一起，浮动无效</li>
-<li>fixed定位和浮动放在一起，浮动无效</li>
-</ol>
+</article>
 
 </div>
-
-
-    <footer>
-      <p class="meta neighbor clearfix">
-        
-          <a href="/blog/2013/05/20/closure-summary/" class="float-l" title="Previous Post: 闭包总结">&laquo; 闭包总结</a>
-        
-        
-          <a href="/blog/2013/05/29/exercise/" class="float-r" title="Next Post: 答题">答题 &raquo;</a>
-        
-      </p>
-    </footer>
+</div>
   </article>
+
 
   <section id="disqus_thread"></section>
 </section>
@@ -243,7 +136,7 @@ html,body{height:100%;overflow:hidden}
 
 <script src="/javascripts/application.js"></script>
 
-<script>var disqus_shortname="gxcsoccer",disqus_identifier=disqus_url="http://gxcsoccer.github.com/blog/2013/05/26/css-summary/",disqus_script="embed.js";(function(){var a=document.createElement("script");a.async=!0,a.src="http://"+disqus_shortname+".disqus.com/"+disqus_script,document.getElementsByTagName("head")[0].appendChild(a)})()</script>
+
 <iframe src="/offline-cache.html" style="display:none"></iframe>
 </body>
 </html>
