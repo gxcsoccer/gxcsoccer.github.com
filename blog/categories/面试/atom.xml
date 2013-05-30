@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 面试 | 彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/面试/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-05-30T01:19:20+08:00</updated>
+  <updated>2013-05-30T21:40:22+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -52,7 +52,7 @@ http://gxcsoccer.github.io/blog/2012/09/04/how-to-stop-css3-transition/</p></li>
 
 <h3>6. 说说 http://m.taobao.com 前端做的最烂的地方，以及你的改进。</h3>
 
-<p>m.taobao.com用的机会很少，简单看了下直观的感觉就是土，估计是为了兼容低端的机型吧。我的建议是通过响应式和渐进增强改善智能机的访问体验。</p>
+<p>m.taobao.com用的机会很少，说几个直观的问题吧，触屏版没有做响应式只对webkit浏览器做了支持，例如：使用了display:-webkit-box专有属性，在IE和firefox下图片无法自适应，应该设置background-size:cover，标准版很土而且有一些很低级的样式问题，比如图标和控件都有没对齐的问题，感觉做的很随意。我的建议就是通过响应式设计统一各种分辨率的体验，支持更多的机型（windows phone等）。</p>
 
 <h3>7. 谈几个有趣的html标签，以及它们的语义。</h3>
 
