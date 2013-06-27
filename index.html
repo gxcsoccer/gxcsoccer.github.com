@@ -158,58 +158,12 @@ html,body{height:100%;overflow:hidden}
 
 <p>选了几个项目中遇到的问题分享给大家</p>
 
-<ul>
-<li><p>overflow hidden的问题<br/>
-在做IPTV的前端项目的时候经常需要一些动画效果，在浏览器上调本来是好的，但在机顶盒上背景有了视频流，就会出现各种匪夷所思的问题，经过漫长的排查发现跟父容器设置了overflow: hidden有关，目前我的解决方案主要有两个，第一，去掉没有必要的overflow:hidden设置，第二，尽量用css3的transform3d代替left, top来做动画。 不过到目前为止，我还没查到一个比较权威的关于该问题的解答，我猜想是动画和滚动条互相影响导致的。</p></li>
-<li><p>如何停掉css3动画<br/>
-http://gxcsoccer.github.io/blog/2012/09/04/how-to-stop-css3-transition/</p></li>
-<li><p>深拷贝的问题<br/>
-在做前端缓存的时候，为了避免使用者污染数据，返回的时候需要做一次深拷贝。实现严谨的深拷贝是比较麻烦的，但是在大多数情况下我们缓存的是一个plainObject，所以用JSON.parse(JSON.stringify(obj)) 就实现我们的需求。</p></li>
-</ul>
-
-
-<h3>4. 在JavaScript面向对象方面，你有什么体会和实践？</h3>
-
-<p><a href="http://gxcsoccer.github.io/blog/2013/05/16/javascript-oop/">http://gxcsoccer.github.io/blog/2013/05/16/javascript-oop/</a></p>
-
-<h3>5. 谈谈JavaScript中的闭包，以及你的实践。</h3>
-
-<p><a href="http://gxcsoccer.github.io/blog/2013/05/20/closure-summary/">http://gxcsoccer.github.io/blog/2013/05/20/closure-summary/</a></p>
-
-<h3>6. 说说 http://m.taobao.com 前端做的最烂的地方，以及你的改进。</h3>
-
-<p>m.taobao.com用的机会很少，说几个直观的问题吧，触屏版没有做响应式只对webkit浏览器做了支持，例如：使用了display:-webkit-box专有属性，在IE和firefox下图片无法自适应，应该设置background-size:cover，标准版很土而且有一些很低级的样式问题，比如图标和控件都有没对齐的问题，感觉做的很随意。我的建议就是通过响应式设计统一各种分辨率的体验，支持更多的机型（windows phone等）。</p>
-
-<h3>7. 谈几个有趣的html标签，以及它们的语义。</h3>
-
-<p>HTML5里面提供很多新的具有语义标签，不过要说有趣我认为还是下面两个，因为它们可以做很多很多有趣的事情</p>
-
-<ul>
-<li>canvas 画布，HTML5里面最重要的特性之一，有了它我们可以做出很多“疯狂”的2D/3D效果</li>
-<li>video 使浏览器不依赖插件便可播放和操作视频流</li>
-</ul>
-
-
-<h3>8. 讲一讲CSS的position/float/display都有哪些取值，它们相互叠加时的行为都是什么？</h3>
-
-<p><a href="http://gxcsoccer.github.io/blog/2013/05/26/css-summary/">http://gxcsoccer.github.io/blog/2013/05/26/css-summary/</a></p>
-
-<h3>9. 说几个你觉得有趣的CSS3选择器，以及他们有趣的用法。</h3>
-
-<p>nth-child(n)，:before/after等等，这些选择器的好处在于不用添加多余的id，class或者元素节点，来实现一些视觉上的效果，例如：给固定位置的子元素设定样式可以使用nth-child(n)或者first-child/last-child，而不用添加多余的id/class，又比如给某一个元素添加一个图标，可以使用before/after伪类，而不用添加一个多余的标签。这让HTML文档更简洁，更纯粹。</p>
-
-<h3>10. 自己问自己一道代表你水平的面试题，然后回答。</h3>
-
-<p>就讲讲平时怎么做性能优化的吧？</p>
-
-<p>答：
-1. 首先是要识别出性能问题，很多时候客户的表达是“页面卡，动画抖动”等等模糊的描述，而对于程序员我们需要一些更数据化，更确切的证据。这时我们可能需要依靠一些工具或者行业标准帮助我们判断，比如：我们可以测算页面帧率的变化曲线，对于那些低于25帧的地方我们就认为可能有性能的问题。
-2. 其次，我们需要找到性能问题的瓶颈，做有针对性的改进。这个可能需要一些经验的积累，也可以辅以一些工具，比如：Chrome DevelopeTool等，在项目中我常碰到的性能问题主要有几种: a) DOM操作频繁，b) JavaScript代码问题，c) 频繁的IO操作，d) 动画性能 <br/>
-3. 那么针对上面的问题，我们可以做一些修改：DOM操作频繁，我们可以通过缓存DOM元素，模板等方式减少直接操作DOM Tree的次数；优化低效的JavaScript代码，例如：避免嵌套的循环，避免过深层次的递归，记得清理定时器等等；对于频繁的IO操作我们可以使用合并请求以及缓存数据来规避；对于动画性能，我们可以尝试用tranform 3d+transition替换jquery动画。<br/>
-4. 性能问题往往是复杂而且综合性的，我们需要经验但是不能迷信经验，如果我们做了上面的努力性能还是不令人满意，通常我们可以选择和浏览器厂商或者中间件厂商进行合作，共同定位、解决问题。<br/>
-5. 如果最终还不能解决问题，那么可能就需要考虑从设计或者功能上做一些取舍来达到一个平衡点。</p>
 </div>
   
+  
+    <footer class="align-r">
+      <a href="/blog/2013/05/29/exercise/#ContinueReading">阅读全文</a>
+    </footer>
   
 
 

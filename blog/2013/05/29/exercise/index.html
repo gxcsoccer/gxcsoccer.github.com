@@ -89,6 +89,9 @@ html,body{height:100%;overflow:hidden}
 
 <p>选了几个项目中遇到的问题分享给大家</p>
 
+<!--more-->
+
+
 <ul>
 <li><p>overflow hidden的问题<br/>
 在做IPTV的前端项目的时候经常需要一些动画效果，在浏览器上调本来是好的，但在机顶盒上背景有了视频流，就会出现各种匪夷所思的问题，经过漫长的排查发现跟父容器设置了overflow: hidden有关，目前我的解决方案主要有两个，第一，去掉没有必要的overflow:hidden设置，第二，尽量用css3的transform3d代替left, top来做动画。 不过到目前为止，我还没查到一个比较权威的关于该问题的解答，我猜想是动画和滚动条互相影响导致的。</p></li>

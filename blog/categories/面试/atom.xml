@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 面试 | 彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/面试/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-06-27T23:51:47+08:00</updated>
+  <updated>2013-06-27T23:54:48+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -31,6 +31,9 @@
 <h3>3. 讲几个你在项目中解决的让你印象最深的问题（难、匪夷所思、解决方案有趣都可以）</h3>
 
 <p>选了几个项目中遇到的问题分享给大家</p>
+
+<!--more-->
+
 
 <ul>
 <li><p>overflow hidden的问题<br/>
