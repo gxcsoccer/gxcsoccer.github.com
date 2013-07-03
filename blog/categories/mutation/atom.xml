@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mutation | 彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/mutation/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-07-04T01:39:31+08:00</updated>
+  <updated>2013-07-04T01:43:44+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -20,9 +20,9 @@
     <id>http://gxcsoccer.github.com/blog/2013/07/04/detect_dom_tree</id>
     <content type="html"><![CDATA[<p>最近一个项目中需要监听DOM tree的改变，首先想到使用<a href="https://developer.mozilla.org/zh-CN/docs/DOM/MutationObserver">MutationObserver</a>。</p>
 
-<p>{% jsfiddle 5s5gc js %}</p>
+<p><iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/5s5gc/embedded/js/light/"></iframe></p>
 
-<p>不过发现在低版本的webkit里面并不支持该API。于是考虑使用Mutation events，查了一下资料虽然很多浏览器目前仍然支持Mutation events，但是在W3C的标准里它已被废弃，取而代之的就是之前提到的MutationObserver。关于Mutation events的问题，引用一段John Resig的评价：</p>
+<p>不过发现在低版本的webkit里面并不支持该API。于是考虑使用Mutation events，查了一下资料虽然很多浏览器目前仍然支持Mutation events，但是在W3C的标准里它已被废弃，取而代之的就是之前提到的MutationObserver。关于Mutation events的问题，引用一段John Resig的描述：</p>
 
 <blockquote><p>Yes, DOM mutation events already exist (in Firefox and Opera – fairly reliably – and dicey in Safari). They have a huge problem, though:</p>
 
@@ -41,7 +41,7 @@
 2. 监听animationStart事件<br/>
 3. 通过事件的animationName属性过滤，找到我们关心的元素</p>
 
-<p>{% jsfiddle KtZrh result,js,html %}</p>
+<p><iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/KtZrh/embedded/result,js,html/light/"></iframe></p>
 
 <p>由于有动画的元素相对较少，所以该方法的性能比Mutation events会高出不少，并且在所有支持的CSS3 animation的浏览器上都支持，怎么样？很酷吧！</p>
 ]]></content>

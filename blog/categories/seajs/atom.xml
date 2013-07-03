@@ -4,7 +4,7 @@
   <title><![CDATA[Category: seajs | 彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/seajs/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-07-04T01:39:31+08:00</updated>
+  <updated>2013-07-04T01:43:44+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -36,7 +36,20 @@
 <!--more-->
 
 
-<p>{% gist 4504426 %}</p>
+<p><div><script src='https://gist.github.com/4504426.js?file='></script>
+<noscript><pre><code>define(function(require, exports, module) {
+
+  // The module code goes here
+
+});
+
+/**  the full version  **/
+define(id, deps, function(require, exports, module) {
+
+  // The module code goes here
+
+});</code></pre></noscript></div>
+</p>
 
 <p>那么要合并文件，其实就是要将id和deps参数补全，我的做法是：</p>
 
