@@ -4,7 +4,7 @@
   <title><![CDATA[Category: JavaScript | 彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-06-29T00:31:46+08:00</updated>
+  <updated>2013-07-04T01:39:31+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -143,11 +143,11 @@
 
 <blockquote><p>arguments是一个“著名”的类数组对象。在看JQuery代码的时候发现，只要一个Object实现了splice方法和length属性，在浏览器中就会被认为是一个数组</p></blockquote>
 
-<p><iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/LbyMF/embedded/js/light/"></iframe></p>
+<p>{% jsfiddle LbyMF js default %}</p>
 
 <h3>遍历数组</h3>
 
-<p><iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/tazSk/embedded/js/light/"></iframe></p>
+<p>{% jsfiddle tazSk js default %}</p>
 
 <blockquote><p>淫巧1有一个问题：当数组元素是null，undefined，0，false等时会造成循环终止。</p>
 
@@ -157,41 +157,29 @@
 
 <p>闭包即<code>function() {}</code>代码块。通常需要控制JavaScript变量作用域时，我们把代码放在这个块中运行：</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'><span class="nx">sth</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">})();</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:javascript %}
+(function() {</p>
+
+<pre><code>var foo = 1, bar = 2;
+sth(foo, bar);
+</code></pre>
+
+<p>})();
+{% endcodeblock %}</p>
 
 <h3>失败的闭包</h3>
 
 <p>上面的代码中要写两对括号，如果代码块太长的话，上下的括号不方便对照。于是，你可能会有意无意漏掉<code>function</code>周围的括号:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'><span class="nx">sth</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}();</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:javascript %}
+function() {</p>
+
+<pre><code>var foo = 1, bar = 2;
+sth(foo, bar);
+</code></pre>
+
+<p>}();
+{% endcodeblock %}</p>
 
 <p>很不幸，运行这段代码会报语法错误（不同 JavaScript 执行程序抛出的异常信息可能会不一样）：</p>
 
@@ -209,21 +197,15 @@ S
 
 <p>这是比较常见的懒人闭包：</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">+</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'><span class="nx">sth</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}();</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:javascript %}
++function() {</p>
+
+<pre><code>var foo = 1, bar = 2;
+sth(foo, bar);
+</code></pre>
+
+<p>}();
+{% endcodeblock %}</p>
 
 <p>为什么它能执行？因为它很好地“营造”了一个让JavaScript将其中的 <code>function</code>识别为表达式的环境————通过单目求正运算符，让 JavaScript知道这里的<code>function</code>不可能是语句。哪有对语句进行运算的啊。</p>
 
@@ -251,124 +233,78 @@ S
 <p>在实际开发中，我们会遇到对于一些集合做重复性的操作。假如，我们要获取div1, div2, div3…的长和宽。最笨的办法就是先取div1的，再取div2的，以此类推。这样重复代码多，而且不“优雅”。当然你也可以将重复代码提取为一个函数，但是这个函数可能就这个地方用的到，没有通用性，比较浪费。</p>
 
 <p>那么自然大家想到了使用循环，将div1, div2, div3…放到数组里面，然后循环数组
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
-</span><span class='line'><span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;div1&#39;</span><span class="p">,</span> <span class="s1">&#39;div2&#39;</span><span class="p">,</span> <span class="s1">&#39;div3&#39;</span><span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-</span><span class='line'><span class="c1">// do something</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+{% codeblock lang:javascript %}
+var arr = [];
+arr.push('div1', 'div2', 'div3');</p>
+
+<p>arr.forEach(function(a, i){</p>
+
+<pre><code>console.log(a);
+// do something
+</code></pre>
+
+<p>});
+{% endcodeblock %}</p>
 
 <p>当然还可以这样：
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="s1">&#39;div1 div2 div3&#39;</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-</span><span class='line'><span class="c1">// do something</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+{% codeblock lang:javascript %}
+'div1 div2 div3'.split(' ').forEach(function(a, i){</p>
+
+<pre><code>console.log(a);
+// do something
+</code></pre>
+
+<p>});
+{% endcodeblock %}</p>
 
 <p>这样对于支持forEach的高级浏览器还是可以的，否则需要扩展数组原型了，不提倡扩展原型，即使不扩展原型提供个额外的函数来操作，就又是浪费。</p>
 
 <p>如果使用了JQuery或者underscore，还可以用它提供的each方法：
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="s1">&#39;div1 div2 div3&#39;</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">),</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">a</span><span class="p">){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-</span><span class='line'><span class="c1">// do something</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}));</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+{% codeblock lang:javascript %}
+$.each('div1 div2 div3'.split(' '), (function(i, a){</p>
+
+<pre><code>console.log(a);
+// do something
+</code></pre>
+
+<p>}));
+{% endcodeblock %}</p>
 
 <p>但是，其实我们用replace就可以实现类似的功能：
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">wh</span> <span class="o">=</span> <span class="p">{};</span>
-</span><span class='line'><span class="s2">&quot;div1 div2 div3&quot;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[^ ]+/g</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">wh</span><span class="p">[</span><span class="nx">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
-</span><span class='line'><span class="s1">&#39;Width Height&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[^ ]+/g</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">){</span>
-</span><span class='line'>        <span class="nx">wh</span><span class="p">[</span><span class="nx">a</span><span class="p">][</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">[</span><span class="s1">&#39;offset&#39;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">]</span> <span class="o">||</span> <span class="nx">elem</span><span class="p">[</span><span class="s1">&#39;client&#39;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">];</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
-</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wh</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+{% codeblock lang:javascript %}
+var wh = {};
+"div1 div2 div3".replace(/[^ ]+/g,function(a){</p>
+
+<pre><code>var elem = document.getElementById(a);
+    wh[a] = {};
+'Width Height'.replace(/[^ ]+/g, function(i){
+        wh[a][i] = elem['offset' + i] || elem['client' + i];
+    });
+</code></pre>
+
+<p>});
+console.log(wh);
+{% endcodeblock %}</p>
 
 <h2>位运算判断元算是否在集合中</h2>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span><span class="p">(</span><span class="o">~</span><span class="s1">&#39;abc&#39;</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">))</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="c1">// do something</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">// 等价于&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="k">if</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="c1">// do something</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:javascript %}
+if(~'abc'.indexOf('b')) {</p>
+
+<pre><code>// do something
+</code></pre>
+
+<p>}</p>
+
+<p>// 等价于</p>
+
+<p>if('abc'.indexOf(b) !== -1) {</p>
+
+<pre><code>// do something
+</code></pre>
+
+<p>}
+{% endcodeblock %}</p>
 
 <blockquote><p>背景知识：<code>补码</code>：任何数值n的位反等于-(n + 1):
 ~n === -(n + 1)。很明显，只有~-1才等于0。</p>

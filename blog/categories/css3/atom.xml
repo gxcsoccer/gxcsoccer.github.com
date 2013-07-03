@@ -4,7 +4,7 @@
   <title><![CDATA[Category: css3 | 彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/css3/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-06-29T00:31:46+08:00</updated>
+  <updated>2013-07-04T01:39:31+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -21,15 +21,7 @@
     <content type="html"><![CDATA[<p>CSS3里面提供原生的动画（Animation）和过渡（Transition）支持，使用起来非常简单方便，但是一直有一个问题困扰着我：如何实现像JQuery动画提供stop方法一样的功能？</p>
 
 <p>今天在学习bootstrap代码的时候发现一段有意思的代码。这段代码意图非常简单，就是要显示$element元素，并且给它加上"in"类，使其产生slide in的效果。但让我看不懂的是：<code>that.$element[0].offsetWidth</code>这句代码，好像没有做什么实质性的事情，后面的注释写的是force reflow（强制重绘）。
-<div><script src='https://gist.github.com/3611790.js?file='></script>
-<noscript><pre><code>that.$element.show();
-
-if (transition) {
-that.$element[0].offsetWidth // force reflow
-}
-
-that.$element.addClass('in');</code></pre></noscript></div>
-</p>
+{% gist 3611790 %}</p>
 
 <p>在网上查找了相关的资料，看到<a href="http://stackoverflow.com/questions/9016307/force-reflow-in-css-transitions-in-bootstrap">Stackoverflow</a>上有人做了解答：</p>
 
@@ -44,7 +36,7 @@ that.$element.addClass('in');</code></pre></noscript></div>
 
 <p>请看下面的例子（<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=649247">在firefox下有问题</a>，请用webkit浏览器）。点击背景，红色的方块会朝右移动到600px的位置，在中途如果再次点击桌面，方块会停止动画，直接跳到目标位置（600px）</p>
 
-<p><iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/Y8PRF/embedded/result,js,html,css/light/"></iframe></p>
+<p>{% jsfiddle Y8PRF result,js,html,css %}</p>
 
 <p>那么如果我们对代码稍做修改，注释掉<code>$box[0].scrollLeft;</code>这行，再运行，发现第二次点击背景时动画无法停掉。</p>
 

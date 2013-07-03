@@ -4,7 +4,7 @@
   <title><![CDATA[Category: seajs | 彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/seajs/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-06-29T00:31:46+08:00</updated>
+  <updated>2013-07-04T01:39:31+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -36,20 +36,7 @@
 <!--more-->
 
 
-<p><div><script src='https://gist.github.com/4504426.js?file='></script>
-<noscript><pre><code>define(function(require, exports, module) {
-
-  // The module code goes here
-
-});
-
-/**  the full version  **/
-define(id, deps, function(require, exports, module) {
-
-  // The module code goes here
-
-});</code></pre></noscript></div>
-</p>
+<p>{% gist 4504426 %}</p>
 
 <p>那么要合并文件，其实就是要将id和deps参数补全，我的做法是：</p>
 
@@ -60,6 +47,12 @@ define(id, deps, function(require, exports, module) {
 <li>递归处理文件依赖的资源，直到所有依赖文件都已经打包到一起</li>
 </ol>
 
+
+<p>安装和运行方式</p>
+
+<blockquote><p>npm install scc -g</p>
+
+<p>$ scc</p></blockquote>
 
 <p>具体代码参考<a href="https://github.com/gxcsoccer/scc">这里</a></p>
 ]]></content>

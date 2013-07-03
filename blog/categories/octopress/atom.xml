@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 彼得_$]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-06-29T00:31:46+08:00</updated>
+  <updated>2013-07-04T01:39:31+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[彼得_$]]></name>
@@ -29,30 +29,19 @@ $ cd username.github.com
 </code></pre>
 
 <p>在仓库下新建一个HTML文件
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>index.html  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>head<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>title<span class="ni">&amp;gt;</span>Hello World<span class="ni">&amp;lt;</span>/title<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>head<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>body<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>h1<span class="ni">&amp;gt;</span>Hello World!<span class="ni">&amp;lt;</span>/h1<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/body<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;&lt;/html&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+{% codeblock index.html lang:html %}
+<html></p>
+
+<pre><code>&lt;head&gt;
+    &lt;title&gt;Hello World&lt;/title&gt;
+&lt;head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p></html>
+{% endcodeblock %}</p>
 
 <p>初始化仓库、提交并push到Github:</p>
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <title>彼得_$</title>
   
-  <meta name="description" content="HTML5物理引擎&#8211;Verlet.js 2013-06-27 Thu 首先，让我们来看一个HTML5模拟的衣服效果: 很酷吧，要实现这样的效果想必很难吧？的确，如果没有框架的支持我们需要了解一些数学和运动学的基本知识。不过，下面我要隆重推出本文主角—— Verlet &hellip;" />
+  <meta name="description" content="监听DOM Tree 2013-07-04 Thu 最近一个项目中需要监听DOM tree的改变，首先想到使用MutationObserver。 不过发现在低版本的webkit里面并不支持该API。于是考虑使用Mutation events，查了一下资料虽然很多浏览器目前仍然支持Mutation &hellip;" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/stylesheets/screen.css" />
   
@@ -40,6 +40,78 @@ html,body{height:100%;overflow:hidden}
 
 <section class="main-wrap clearfix">
   
+  
+  
+    <article>
+      
+
+<header>
+  
+    <h1 class="entry-title"><a href="/blog/2013/07/04/detect_dom_tree/">监听DOM Tree</a></h1>
+  
+  
+    <p class="meta">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-04T00:33:00+08:00" pubdate="pubdate" data-updated="true">2013-07-04 Thu</time>
+      
+
+      <span class="share-to-weibo">
+        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=监听DOM Tree - &amp;url=http://gxcsoccer.github.com/blog/2013/07/04/detect_dom_tree/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=监听DOM Tree - &amp;url=http://gxcsoccer.github.com/blog/2013/07/04/detect_dom_tree/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
+
+        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=监听DOM Tree - http://gxcsoccer.github.com/blog/2013/07/04/detect_dom_tree/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
+      </span>
+    </p>
+  
+</header>
+
+
+  <div class="entry-content typo"><p>最近一个项目中需要监听DOM tree的改变，首先想到使用<a href="https://developer.mozilla.org/zh-CN/docs/DOM/MutationObserver">MutationObserver</a>。</p>
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/5s5gc/embedded/js/light/"></iframe>
+
+
+<p>不过发现在低版本的webkit里面并不支持该API。于是考虑使用Mutation events，查了一下资料虽然很多浏览器目前仍然支持Mutation events，但是在W3C的标准里它已被废弃，取而代之的就是之前提到的MutationObserver。关于Mutation events的问题，引用一段John Resig的评价：</p>
+
+<blockquote><p>Yes, DOM mutation events already exist (in Firefox and Opera – fairly reliably – and dicey in Safari). They have a huge problem, though:</p>
+
+<p>They absolutely cripple DOM performance on any page which they’re enabled.</p>
+
+<p>Firefox, for example, when it realizes that a mutation event has been turned on, instantly goes into an incredibly-slow code path where it has to fire events at every single DOM modification. This means that doing something like .innerHTML = “foo” where it wipes out 1000 elements would fire, at least 1000 + 1 events (1000 removal events, 1 addition event).</p></blockquote>
+
+<p>总而言之，Mutation events会带来很大的性能问题，所以我们似乎也不应该使用它，那么还有什么其他方法吗？</p>
+
+<h3>高效的山寨DOMNodeInserted事件</h3>
+
+<p>是的，还真有。我们可以利用CSS3的animationStart事件来模拟DOMNodeInserted事件。</p>
+
+<p>具体方法是：<br/>
+1. 给指定的元素添加一个非常短暂的关键帧动画，比如叫：nodeInserted<br/>
+2. 监听animationStart事件<br/>
+3. 通过事件的animationName属性过滤，找到我们关心的元素</p>
+
+<iframe style="width: 100%; height: 300px" src="http://jsfiddle.net/KtZrh/embedded/result,js,html/light/"></iframe>
+
+
+<p>由于有动画的元素相对较少，所以该方法的性能比Mutation events会高出不少，并且在所有支持的CSS3 animation的浏览器上都支持，怎么样？很酷吧！</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -673,80 +745,6 @@ that.$element.addClass('in');</code></pre></noscript></div>
   
     <footer class="align-r">
       <a href="/blog/2012/09/04/how-to-stop-css3-transition/#ContinueReading">阅读全文</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-
-<header>
-  
-    <h1 class="entry-title"><a href="/blog/2012/06/24/mathematic-in-web/">前端中的数学知识</a></h1>
-  
-  
-    <p class="meta">
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-24T22:48:00+08:00" pubdate="pubdate" data-updated="true">2012-06-24 Sun</time>
-      
-
-      <span class="share-to-weibo">
-        <a href="javascript:void(0)" onclick="window.open('http://service.weibo.com/share/share.php?appkey=&amp;ralateUid=&amp;title=前端中的数学知识 - &amp;url=http://gxcsoccer.github.com/blog/2012/06/24/mathematic-in-web/', null, 'width=615,height=505,toolbar=0,status=0')" class="sina-weibo" title="分享到新浪微博"></a>
-
-        <a href="javascript:void(0)" onclick="window.open('http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;appkey=&amp;title=前端中的数学知识 - &amp;url=http://gxcsoccer.github.com/blog/2012/06/24/mathematic-in-web/', null, 'width=700,height=680,toolbar=0,status=0')" class="tencent-weibo" title="分享到腾讯微博"></a>
-
-        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?text=前端中的数学知识 - http://gxcsoccer.github.com/blog/2012/06/24/mathematic-in-web/', null, 'width=600,height=300,toolbar=0,status=0')" class="twitter" title="分享到Twitter"></a>
-      </span>
-    </p>
-  
-</header>
-
-
-  <div class="entry-content typo"><p>最近在学习webgl，看得很吃力，感叹学校里的数学知识都已经全还给老师。总结一下这几天恶补的数学知识，以免猴子搬苞谷。。。</p>
-
-<h2>矢量（vector）</h2>
-
-<p><strong>矢量</strong>亦称<strong>向量</strong>。指一个同时具有大小和方向的几何对象，数学中相对于<strong>标量</strong>（只有大小）。</p>
-
-<p>矢量有多种表示方法，比如：用起点A和终点B来表示<img src="/images/post/vector.png" alt="" />；在三维直角坐标系Oxyz里可以用原点（0,0,0）到空间中任意一点表示一个向量。</p>
-
-<p><img src="/images/post/3d.png" alt="" /> <img src="/images/post/col_vector.png" alt="" /></p>
-
-<h3>单位矢量</h3>
-
-<p>矢量空间中的单位矢量就是长度为1的矢量。也就是<strong>模</strong>为1的矢量。</p>
-
-<h3>基本矢量</h3>
-
-<p>三维直角坐标系中，基本矢量就是以横轴（Ox）、竖轴（Oy） 以及纵轴（Oz） 为方向的三个单位矢量<img src="/images/post/unit_v.png" alt="" />。这三个矢量取好以后，其它的矢量就可以通过三元数组来表示，因为它们可以表示成一定倍数的三个基本矢量的总合。比如说一个标示为(2,1,3)的矢量就是2个矢量<img src="/images/post/i_v.png" alt="" />加上1个矢量<img src="/images/post/j_v.png" alt="" />加上3个矢量<img src="/images/post/k_v.png" alt="" />得到的矢量。</p>
-
-<p><img src="/images/post/v_fn.png" alt="" /></p>
-
-<p>更多矢量相关知识参考：<a href="http://zh.wikipedia.org/wiki/%E7%9F%A2%E9%87%8F">http://zh.wikipedia.org/wiki/%E7%9F%A2%E9%87%8F</a>， 这里就不赘述了。</p>
-
-<h2>矩阵（Matrix）</h2>
-
-<p>数学上，一个m×n的矩阵是一个由m行n列元素排列成的矩形阵列。矩阵里的元素可以是数字、符号或数学式。以下是一个由6个数字符素构成的2行3列的矩阵：<img src="/images/post/matrix.png" alt="" /></p>
-
-</div>
-  
-  
-    <footer class="align-r">
-      <a href="/blog/2012/06/24/mathematic-in-web/#ContinueReading">阅读全文</a>
     </footer>
   
 
