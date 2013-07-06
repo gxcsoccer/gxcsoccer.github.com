@@ -28,6 +28,6 @@ categories: DOM Mutation
 2. 监听animationStart事件  
 3. 通过事件的animationName属性过滤，找到我们关心的元素  
 
-{% jsfiddle KtZrh result,js,html %}
+{% jsfiddle KtZrh result,js,css,html %}
 
 由于有动画的元素相对较少，所以该方法的性能比Mutation events会高出不少，并且在所有支持的CSS3 animation的浏览器上都支持，怎么样？很酷吧！
