@@ -4,7 +4,7 @@
   <title><![CDATA[Category: resume | (:◎)≡]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/resume/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-07-18T00:42:52+08:00</updated>
+  <updated>2013-07-21T00:02:59+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[髙小浪]]></name>
@@ -46,11 +46,13 @@
 <p><strong>2011.10 － 至今： 华为南研所 前端工程师</strong></p>
 
 <ul>
-<li>开发基于webkit浏览器的iptv机顶盒的web前端应用</li>
-<li>参考spm，开发了为项目组定制的seajs打包工具<br/>
-<a href="https://github.com/gxcsoccer/scc">https://github.com/gxcsoccer/scc</a></li>
-<li>做为web端负责人和机顶盒团队一起完成了iptv应用web化和html5浏览器性能优化的项目<br/>
-<a href="http://gxcsoccer.github.io/HTML5EPG/">http://gxcsoccer.github.io/HTML5EPG/</a></li>
+<li><p>开发基于webkit浏览器的iptv机顶盒的web app<br/>
+实现了一个类似backbone的单页面MVC框架，包括窗口系统、事件系统以及常用的控件库；<br/>
+采用seajs实现页面的按需加载和模块化；<br/>
+采用SASS作为CSS预处理框架，一定程度上实现了CSS组件化</p></li>
+<li><p>参考spm，开发了为项目组定制的seajs打包工具<br/>
+通过uglify-js分析JS源码，提取代码的依赖关系，然后按照seajs的标准格式改写代码，最后合并成一个文件、压缩。</p></li>
+<li><p>做为web端负责人和机顶盒团队一起完成了iptv应用web化和html5浏览器性能优化的项目</p></li>
 </ul>
 
 
@@ -68,6 +70,7 @@
 <ul>
 <li>Javascript语言自认还是比较熟悉，能够输出较高质量的代码</li>
 <li>HTML5相关的特性有一定的研究，很多在项目中已经使用</li>
+<li>CSS基础还不错，能还原设计稿输出较高质量的页面，对CSS3新特性也有一定研究，对Sass、LESS和Stylus等预处理工具有一定项目经验</li>
 <li>对Nodejs及redis，mongdb等技术还比较熟悉，平时喜欢用它们开发一些工具以及一些简单的web应用</li>
 <li>对游戏开发有些小研究，属于平时自己瞎折腾，例如：碰撞检测，粒子系统和寻路等等</li>
 <li>5年.net经验，但是有一年多没碰了：）</li>
@@ -77,7 +80,7 @@
 <h3><a href="https://github.com/gxcsoccer/">我的github项目</a></h3>
 
 <ul>
-<li><a href="https://github.com/gxcsoccer/HTML5EPG">HTML5EPG</a> 将android原生的电视导航应用移植到基于webkit的浏览器上</li>
+<li><a href="https://github.com/gxcsoccer/HTML5EPG">HTML5EPG</a> 将android原生的电视导航应用移植到基于webkit的浏览器上，大量运用了CSS3特效，例如：transform 3d, transition, animation, gradient等。</li>
 <li><a href="https://github.com/gxcsoccer/ParticleSystem">ParticleSystem</a> JavaScript实现的粒子系统，支持火焰、云朵、传送门等特效</li>
 <li><a href="https://github.com/zhangchunsheng/html5_kof">html5_kof</a> 基于melonJs开发的一个的简单的html5 rpg小游戏</li>
 <li><a href="https://github.com/gxcsoccer/collision-lab">collision-lab</a> HTML5 Canvas模拟碰撞的实践，包括AABB，OBB等类型的碰撞检测和碰撞反应</li>
