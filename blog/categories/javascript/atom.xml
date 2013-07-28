@@ -4,7 +4,7 @@
   <title><![CDATA[Category: JavaScript | (:◎)≡]]></title>
   <link href="http://gxcsoccer.github.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://gxcsoccer.github.com/"/>
-  <updated>2013-07-21T00:02:59+08:00</updated>
+  <updated>2013-07-28T22:30:25+08:00</updated>
   <id>http://gxcsoccer.github.com/</id>
   <author>
     <name><![CDATA[髙小浪]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[伤不起的排序]]></title>
+    <title type="html"><![CDATA[坑爹的排序]]></title>
     <link href="http://gxcsoccer.github.com/blog/2013/07/13/weird-sort/"/>
     <updated>2013-07-13T22:37:00+08:00</updated>
     <id>http://gxcsoccer.github.com/blog/2013/07/13/weird-sort</id>
@@ -277,8 +277,6 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>OK，完全正确，所以说在写comparefn时一定要对三种情况分别返回-1，0和1，否则就会出现上面例子2的莫名其妙的问题。</p>
-
-<p>说到这里，一声叹息！今年年初winter老师面试我的时候也提到了这个问题，当时我的回答不是很理想，也没太在意，没想到今天就踩到这个坑里面去了，伤不起阿，真得伤不起阿。</p>
 ]]></content>
   </entry>
   
