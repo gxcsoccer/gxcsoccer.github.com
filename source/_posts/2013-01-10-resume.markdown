@@ -31,11 +31,15 @@ categories: resume
 
 **2011.10 － 至今： 华为南研所	前端工程师**
 
-* 开发基于webkit浏览器的iptv机顶盒的web前端应用
+* 开发基于webkit浏览器的iptv机顶盒的web app  
+  实现了一个类似backbone的单页面MVC框架，包括窗口系统、事件系统以及常用的控件库；  
+  采用seajs实现页面的按需加载和模块化；  
+  采用SASS作为CSS预处理框架，一定程度上实现了CSS组件化  
+
 * 参考spm，开发了为项目组定制的seajs打包工具  
-[https://github.com/gxcsoccer/scc](https://github.com/gxcsoccer/scc)
+  通过uglify-js分析JS源码，提取代码的依赖关系，然后按照seajs的标准格式改写代码，最后合并成一个文件、压缩。
+
 * 做为web端负责人和机顶盒团队一起完成了iptv应用web化和html5浏览器性能优化的项目  
-[http://gxcsoccer.github.io/HTML5EPG/](http://gxcsoccer.github.io/HTML5EPG/)
 
 
 **2006.7 － 2011.9：新蛋科技（成都）	 工程师｜项目经理**
@@ -49,22 +53,23 @@ categories: resume
 
 * Javascript语言自认还是比较熟悉，能够输出较高质量的代码
 * HTML5相关的特性有一定的研究，很多在项目中已经使用
+* CSS基础还不错，能还原设计稿输出较高质量的页面，对CSS3新特性也有一定研究，对Sass、LESS和Stylus等预处理工具有一定项目经验
 * 对Nodejs及redis，mongdb等技术还比较熟悉，平时喜欢用它们开发一些工具以及一些简单的web应用
 * 对游戏开发有些小研究，属于平时自己瞎折腾，例如：碰撞检测，粒子系统和寻路等等
 * 5年.net经验，但是有一年多没碰了：）
 
 ###[我的github项目](https://github.com/gxcsoccer/)
 
-* [HTML5EPG](https://github.com/gxcsoccer/HTML5EPG) 将android原生的电视导航应用移植到基于webkit的浏览器上
-* [ParticleSystem](https://github.com/gxcsoccer/ParticleSystem) 粒子系统的一个实现
+* [HTML5EPG](https://github.com/gxcsoccer/HTML5EPG) 将android原生的电视导航应用移植到基于webkit的浏览器上，大量运用了CSS3特效，例如：transform 3d, transition, animation, gradient等。
+* [ParticleSystem](https://github.com/gxcsoccer/ParticleSystem) JavaScript实现的粒子系统，支持火焰、云朵、传送门等特效
+* [html5_kof](https://github.com/zhangchunsheng/html5_kof) 基于melonJs开发的一个的简单的html5 rpg小游戏
+* [collision-lab](https://github.com/gxcsoccer/collision-lab) HTML5 Canvas模拟碰撞的实践，包括AABB，OBB等类型的碰撞检测和碰撞反应
 * [LingJs](https://github.com/gxcsoccer/LinqJs) 提供LINQ风格的javascript库
 * [ProfilingTool](https://github.com/gxcsoccer/ProfilingTool) 一个web性能检测小工具
 * [orz](https://github.com/gxcsoccer/orz) 一个简单的redis数据访问库
 * [jsonbuf](https://github.com/gxcsoccer/jsonbuf) 一个简单的将JSON格式压缩为二进制格式的库
 * [sultana](https://github.com/gxcsoccer/sultana) 对socket.io进行connect风格的封装
-* [node-rpc](https://github.com/gxcsoccer/node-rpc) 一个rpc框架
-* [collision-lab](https://github.com/gxcsoccer/collision-lab) 碰撞实验室，根据小胖的视频教程做了一些实践
+* [node-rpc](https://github.com/gxcsoccer/node-rpc) 一个nodejs的rpc框架
 * [trait](https://github.com/gxcsoccer/trait) 生成可复用mixin的类库
 * [scc](https://github.com/gxcsoccer/scc) 一个定制化的seajs的打包工具
 * [pitaya](https://github.com/gxcsoccer/pitaya) 一个RESTful风格的api库，同时支持json和二进制格式
-* [html5_kof](https://github.com/zhangchunsheng/html5_kof) 基于melonJs的html5游戏
